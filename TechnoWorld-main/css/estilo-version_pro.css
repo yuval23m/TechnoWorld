@@ -1,3 +1,8 @@
+*{
+    margin: 0%;
+    padding: 0px;
+}
+
 body{
     font-family: 'Press Start 2P', cursive;
     background-color: #ffffff;
@@ -26,33 +31,59 @@ body{
 }
 
 #suscripciones .sus{
-    padding: 10px 50px;
     margin: 40px 30px;
 }
 
-.plata{
-    background-color: silver;
-    border: 4mm ridge silver;
+.fsociety{
     transform: translateY(100px);
     -webkit-transform: translateY(100px);
     -moz-transform: translateY(100px);
     -ms-transform: translateY(100px);
     -o-transform: translateY(100px);
+    padding: 40px 30px;
+    height: 450px;
+    background: linear-gradient(rgba(0, 0, 0, 0.605), rgba(0, 0, 0, 0.7)), url(../imagenes/fsociety.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 90px;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    -ms-border-radius: 90px;
+    -o-border-radius: 90px;
 }
 
-.oro{
-    background-color: gold;
-    border: 4mm ridge gold;
+.anonymous{
+    background: linear-gradient(rgba(0, 0, 0, 0.832), rgba(0, 0, 0, 0.481)), url(../imagenes/anonymous.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 90px;
+    padding: 40px 30px;
+    height: 500px;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    -ms-border-radius: 90px;
+    -o-border-radius: 90px;
 }
 
-.bronce{
-    background-color: rgb(203, 138, 9);
-    border: 4mm ridge rgb(203, 138, 9);
+.darkarmy{
+    background: linear-gradient(rgba(0, 0, 0, 0.832), rgba(0, 0, 0, 0.481)), url(../imagenes/darkarmy.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 90px;
     transform: translateY(100px);
     -webkit-transform: translateY(100px);
     -moz-transform: translateY(100px);
     -ms-transform: translateY(100px);
     -o-transform: translateY(100px);
+    padding: 40px 30px;
+    height: 450px;
+}
+
+.par{
+    padding: 20px;
 }
 
 .pie-pagina {
