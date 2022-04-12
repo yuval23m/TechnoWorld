@@ -20,60 +20,7 @@ body {
     background-color: #593a81;
 }
 
-#menu {
-    background-color: #38656b;
-    border-radius: 30px;
-    border: 5mm ridge #5247795b;
-    box-shadow: 1px 1px 10px 0 #000000;
-    height: 95px;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: 80%;
-    z-index: 100;
-    /* ATRIBUTOS BORDER DE LA CAJA NAV */
-}
-#contMenu {
-    display: flex;
-    flex-direction: row;
-}
-div.vinculos-header {
-    position: relative;
-    right: 40px;
-    top: 20px;
-}
-#main{
-    margin: auto;
-    padding: 0%;
-}
-/* ATTRIBUTOS DE VINCULOS LISTADOS 2 (DESDE EL ul)*/
 
-#lista li {
-    display: inline;
-    margin: 0%;
-    padding: 10px;
-}
-
-
-/* ATTRIBUTOS DE LETRAS DE VINCULOS (DESDE EL ul)*/
-
-#lista a {
-    color: #0f0958;
-    font-family: 'Syne Mono', monospace;
-    font-weight: bold;
-    padding: 3em;
-    text-decoration: none;
-}
-
-#lista a:hover {
-    background-color: #000000;
-}
-
-#lista {
-    list-style-type: none;
-    margin: 0;
-    padding: 10;
-}
 /*MAIN EN GENERAL, DONDE TIENE DENTRO TODO*/
 
 main {
@@ -293,6 +240,89 @@ main {
     }
 }
 
+#menu {
+    background-color: #212529;
+    opacity: 90%;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+    position: fixed;
+    top: 15px;
+    z-index: 100;
+    border-radius: 100px;
+    /* ATRIBUTOS BORDER DE LA CAJA NAV */
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
+#contMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#lista li i {
+    font-size: 30px;
+    color: white;
+    padding: 0px 10px;
+}
+
+#lista a {
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    padding: 0px 7px;
+    text-decoration: none;
+}
+
+#lista li {
+    display: inline;
+    margin: 0%;
+    padding: 15px;
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+}
+
+#lista li:hover {
+    background-color: #000000;
+    padding: 20px 0px;
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
+#lista {
+    list-style-type: none;
+    padding: 10px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
+#lista a:hover {
+    background-color: #000000;
+}
+
+main {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
+}
+
 
 /*ESTILO HEADER SPAN (ICONO)*/
 
@@ -303,7 +333,6 @@ span {
     text-align: center;
     padding: 6.5rem;
 }
-
 
 
 /* FOOTER */
@@ -391,6 +420,7 @@ a {
         padding: 35px 0px;
     }
 }
+
 @media only screen and (min-width: 320px) {
     #menu {
         width: 90%;
@@ -442,8 +472,6 @@ a {
         right: 40px;
         top: 12px;
     }
-
-
 }
 
 @media screen and (min-width: 768px) {
@@ -452,7 +480,6 @@ a {
         left: 10px;
         /* ATRIBUTOS BORDER DE LA CAJA NAV */
     }
-
 }
 
 
@@ -462,19 +489,19 @@ a {
     #menu {
         width: 90%;
         left: 10px;
-        /* ATRIBUTOS BORDER DE LA CAJA NAV */
     }
 }
 
 @media screen and (min-width: 1024px) {
     #menu {
         width: 90%;
-        left: 70px;
+        justify-content: center;
+        margin: 0px 50px;
     }
     #lista {
         margin: 0px 34px;
         font-size: 16px;
         overflow: hidden;
+        padding: 20px 0px;
     }
-
 }
