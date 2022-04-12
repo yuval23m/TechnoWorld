@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilo-registro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav id="menu">
+            <section id="contMenu">
+                <ul id="lista">
+                    <li>
+                        <a href="index.html"> <i class="fa-solid fa-house"></i>Inicio</a>
+                    </li>
+                    <li>
+                       
+                        <a href="contacto.html" target="_blank"><i class="fa-solid fa-phone"></i>Contacto</a></li>
+                    <li>
+                        <a href="quienes_somos.html"><i class="fa-solid fa-users"></i>Quiénes somos</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-gear"></i>Ajustes</a>
+                    </li>
+                    <li>
+                        
+                        <a href="version_pro.html"><i class="fa-solid fa-crown"></i>Pro</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>  
+    </header>
+    <span>
+        <i class="fa-solid fa-globe"></i>
+        <p class="parrafo">Más de 4.000.000 de usuarios están con TECHno World!</p>
+        <p class="parrafo">Sé uno de nosotros!</p>
+    </span>
+    <main>
+        <form action="https://formspree.io/f/xvolqvdb" class="formulario" id="formulario" method="POST">
+            <!-- Grupo: Nombre completo -->
+            <div class="formulario__grupo" id="grupo__nombre">
+                <label for="fullname" class="formulario__label">Nombre Completo</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="fullname" id="fullname" placeholder="Rodrigo Alonso Letelier Isami">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El nombre solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+            </div>
+            
+            <!-- Grupo: Correo Electronico -->
+            <div class="formulario__grupo" id="grupo__correo">
+                <label for="correo" class="formulario__label">Correo Electrónico</label>
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+            </div>
+            
+
+            <!-- Grupo: Teléfono -->
+            <div class="formulario__grupo" id="grupo__clave">
+                <label for="clave" class="formulario__label">Contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input type="password" class="formulario__input" name="clave" id="clave" placeholder="Escriba su contraseña">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">La contraseña es incorrecta</p>
+            </div>
+            <!-- Grupo: Fecha nacimiento -->
+            <div class="formulario__grupo" id="grupo__fechanac">
+                <label for="fechanac" class="formulario__label">Fecha nacimiento</label>
+                <div class="formulario__grupo-input">
+                    <input type="number" placeholder="DD" name="fechanac" class="formulario__grupo" required>
+                    <input type="number" placeholder="MM" name="fechanac" class="formulario__grupo" required>
+                    <input type="number" placeholder="YY" name="fechanac" class="formulario__grupo" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">La fecha de nacimiento solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+            </div>
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Iniciar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Registro exitoso, redirigiendo al portal...</p>
+                
+            </div>
+        </form>
+    </main>
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="index.html">
+                        TECHn <i class="fa-solid fa-globe"></i> World
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Amantes de la tecnología</p>
+                <p>entregando el mejor software y hardware hacia ustedes!</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2021 <b>TECHn <i class="fa-solid fa-globe"></i> World</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <script src="js/app.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0113bec5a9.js" crossorigin="anonymous"></script>
+</body>
+</html>
