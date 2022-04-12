@@ -9,7 +9,7 @@ body {
     font-family: 'Syne Mono', monospace;
     /* ATRIBUTOS BACKGROUND DE BODY */
     background-repeat: no-repeat;
-    background-image: url(../imagenes/back4.jpg);
+    background-image: url(../imagenes/bg4.jpg);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
