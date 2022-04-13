@@ -4,13 +4,15 @@ const inputs = document.querySelectorAll('#formulario input');
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // LETRAS Y ESPACIOS, PUEDEN LLEVAR ACENTOS
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    telefono: /^\d{8,9}$/ // 8 A 9 NUMEROS
+    telefono: /^\d{8,9}$/ // 8 A 9 NUMEROS,
+    clave: /^[a-zA-ZÀ-ÿ\s]{1,40}$/
 }
 
 const campos = { //CAMPOS EN FALSO QUE AL MOMENTO DE VALIDAR CAMBIARAN
     nombre: false,
     correo: false,
-    telefono: false
+    telefono: false,
+    clave: false
 }
 
 const validarFormulario = (e) => {
@@ -24,6 +26,8 @@ const validarFormulario = (e) => {
         case "telefono":
             validarCampo(expresiones.telefono, e.target, 'telefono');
             break;
+        case "clave":
+            validarCampo(expresiones.clave, e.target, 'clave');
     }
 }
 
