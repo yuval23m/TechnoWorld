@@ -9,71 +9,100 @@ body {
     font-family: 'Syne Mono', monospace;
     /* ATRIBUTOS BACKGROUND DE BODY */
     background-repeat: no-repeat;
-    background-image: url(../imagenes/back4.jpg);
+    background-image: url(../imagenes/bg4.jpg);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
     background-color: #593a81;
 }
 
+p{
+    color: #ffff;
+}
+
 #menu {
-    background-color: #38656b;
-    border-radius: 30px;
-    border: 5mm ridge #5247795b;
-    box-shadow: 1px 1px 10px 0 #000000;
-    height: 95px;
+    background-color: #212529;
+    opacity: 90%;
+    font-family: 'Press Start 2P', cursive;
     overflow: hidden;
     position: fixed;
-    top: 0;
-    width: 80%;
+    top: 15px;
     z-index: 100;
+    border-radius: 100px;
     /* ATRIBUTOS BORDER DE LA CAJA NAV */
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
 }
+
 #contMenu {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
-div.vinculos-header {
-    position: relative;
-    right: 40px;
-    top: 20px;
+
+#lista li i {
+    font-size: 30px;
+    color: white;
+    padding: 0px 10px;
 }
-#helloimg {
-    clip-path: inset(19px 0px 19px 0px);
-    float: left;
-    height: 80%;
-    padding: 10% 10% 10;
-    position: relative;
-    top: -10px;
+
+#lista a {
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    padding: 0px 7px;
+    text-decoration: none;
 }
-/* ATTRIBUTOS DE VINCULOS LISTADOS 2 (DESDE EL ul)*/
 
 #lista li {
     display: inline;
     margin: 0%;
-    padding: 10px;
+    padding: 15px;
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
 }
 
+#lista li:hover {
+    background-color: #000000;
+    padding: 20px 0px;
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
 
-/* ATTRIBUTOS DE LETRAS DE VINCULOS (DESDE EL ul)*/
-
-#lista a {
-    color: #0f0958;
-    font-family: 'Syne Mono', monospace;
-    font-weight: bold;
-    padding: 3em;
-    text-decoration: none;
+#lista {
+    list-style-type: none;
+    padding: 10px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
 }
 
 #lista a:hover {
     background-color: #000000;
 }
 
-#lista {
-    list-style-type: none;
-    margin: 0;
-    padding: 10;
+main {
+    max-width: 800px;
+    width: 90%;
+    margin: auto;
+    padding: 40px;
 }
+
 
 /* SLIDER */
 
@@ -196,6 +225,7 @@ a {
         padding: 35px 0px;
     }
 }
+
 @media only screen and (min-width: 320px) {
     #menu {
         width: 90%;
@@ -215,18 +245,6 @@ a {
         right: 8px;
         top: 12px;
     }
-    .carousel-inner{
-        margin-top: 30%;
-        padding: 5%;
-    }
-    .carousel-inner p{
-        font-size: 10px;
-        left: 7%;
-    }
-    .carousel-inner h1{
-        top: -13%;
-        left: 20%;
-    }
 }
 
 @media screen and (min-width: 480px) {
@@ -235,19 +253,6 @@ a {
         left: 10px;
         /* ATRIBUTOS BORDER DE LA CAJA NAV */
     }
-    .carousel-inner{
-        margin-top: 30%;
-        padding: 5%;
-    }
-    .carousel-inner p{
-        font-size: 10px;
-        left: 7%;
-    }
-    .carousel-inner h1{
-        top: -13%;
-        left: 20%;
-    }
-
 }
 
 
@@ -272,19 +277,6 @@ a {
         right: 40px;
         top: 12px;
     }
-    .carousel-inner{
-        margin-top: 20%;
-        padding: 10%;
-    }
-    .carousel-inner p{
-        font-size: 20px;
-        left: 10%;
-    }
-    .carousel-inner h1{
-        top: -30%;
-        left: 35%;
-    }
-
 }
 
 @media screen and (min-width: 768px) {
@@ -293,19 +285,6 @@ a {
         left: 10px;
         /* ATRIBUTOS BORDER DE LA CAJA NAV */
     }
-    .carousel-inner{
-        margin-top: 10%;
-        padding: 10%;
-    }
-    .carousel-inner p{
-        font-size: 20px;
-        left: 10%;
-    }
-    .carousel-inner h1{
-        top: -30%;
-        left: 35%;
-    }
-
 }
 
 
@@ -315,43 +294,19 @@ a {
     #menu {
         width: 90%;
         left: 10px;
-        /* ATRIBUTOS BORDER DE LA CAJA NAV */
     }
-    .carousel-inner{
-        margin-top: 10%;
-        padding: 10%;
-    }
-    .carousel-inner p{
-        font-size: 20px;
-        left: 10%;
-    }
-    .carousel-inner h1{
-        top: -30%;
-        left: 35%;
-    }
-
 }
 
 @media screen and (min-width: 1024px) {
     #menu {
         width: 90%;
-        left: 70px;
+        justify-content: center;
+        margin: 0px 50px;
     }
     #lista {
         margin: 0px 34px;
         font-size: 16px;
         overflow: hidden;
-    }
-    .carousel-inner{
-        margin-top: 10%;
-        padding: 10%;
-    }
-    .carousel-inner p{
-        font-size: 20px;
-        left: 10%;
-    }
-    .carousel-inner h1{
-        top: -30%;
-        left: 35%;
+        padding: 20px 0px;
     }
 }
