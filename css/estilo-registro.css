@@ -317,11 +317,17 @@ main {
 #mensaje {
     background-color: #ffffff;
 }
-
+/*<<<<<<< Lete*/
+#telefono{
+    margin: 12px 0px;
+    width: 100%;
+}
+=======
 #grupo__telefono{
     margin: auto;
     width: 100%;
     
+/*>>>>>>> main*/
 }
 
 /* MEDIA QUERI OSEA RESPONSIVO */
