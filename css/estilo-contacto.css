@@ -334,6 +334,11 @@ span {
     padding: 6.5rem;
 }
 
+span i{
+    color:white;
+    text-shadow: 0.05em 0 0 #ff0000, -0.025em -0.05em 0 #05fc05, 0.040em 0.05em 0 #0000ffbf;
+}
+
 
 /* FOOTER */
 
