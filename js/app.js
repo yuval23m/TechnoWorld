@@ -4,17 +4,26 @@ const inputs = document.querySelectorAll('#formulario input');
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // LETRAS Y ESPACIOS, PUEDEN LLEVAR ACENTOS
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+//Lete
     telefono: /^\d{8,9}$/, // 8 A 9 NUMEROS
     clave: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
     clave2: /^[a-zA-ZÀ-ÿ\s]{1,40}$/
+//
+    telefono: /^\d{8,9}$/ // 8 A 9 NUMEROS,
+    clave: /^[a-zA-ZÀ-ÿ\s]{1,40}$/
+// main
 }
 
 const campos = { //CAMPOS EN FALSO QUE AL MOMENTO DE VALIDAR CAMBIARAN
     nombre: false,
     correo: false,
     telefono: false,
+// Lete
     clave: false,
     clave2: false
+//
+    clave: false
+// main
 }
 
 const validarFormulario = (e) => {
@@ -29,6 +38,7 @@ const validarFormulario = (e) => {
             validarCampo(expresiones.telefono, e.target, 'telefono');
             break;
         case "clave":
+// Lete
             validarCampo(expresiones.telefono, e.target, 'clave');
             break;
         case "clave2":
@@ -52,6 +62,9 @@ function validaClave() {
         document.querySelector(`#grupo__clave2 i`).classList.remove('fa-check-circle');
         document.querySelector(`#grupo__clave2 .formulario__input-error`).classList.add('formulario__input-error-activo');
         campos['clave2'] = false;
+=======
+            validarCampo(expresiones.clave, e.target, 'clave');
+// main
     }
 }
 
