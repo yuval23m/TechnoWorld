@@ -8,7 +8,6 @@ body {
     background-color: #ffffff;
     background-image: url(../imagenes/back5.jpg);
     background-attachment: fixed;
-    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     /* ATRIBUTOS BACKGROUND DE BODY */
@@ -140,7 +139,7 @@ h1 {
 #lista {
     list-style-type: none;
     margin: 0;
-    padding: 10;
+    padding: 10px;
 }
 
 #titulo {
@@ -167,7 +166,7 @@ h1 {
 /* ATRIBUTOS GENERALES DE TITULO */
 
 #titulo li.titulotxt {
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: 'Press Start 2P', cursive;
     font-size: 80px;
     margin: 90px 0px;
@@ -443,7 +442,6 @@ h1 {
 }
 
 #articulo3 img {
-    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -451,7 +449,6 @@ h1 {
 }
 
 #articulo4 img {
-    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -459,7 +456,6 @@ h1 {
 }
 
 #articulo5 img {
-    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -708,7 +704,6 @@ a {
     }
     .contenedor3 {
         margin: auto;
-        padding: auto;
     }
 }
 
