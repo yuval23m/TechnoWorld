@@ -7,10 +7,7 @@ const expresiones = {
 //Lete
     telefono: /^\d{8,9}$/, // 8 A 9 NUMEROS
     clave: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
-    clave2: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
-//
-    telefono: /^\d{8,9}$/, // 8 A 9 NUMEROS,
-    clave: /^[a-zA-ZÀ-ÿ\s]{1,40}$/
+    clave2: /^[a-zA-ZÀ-ÿ\s]{1,40}$/
 // main
 }
 
@@ -21,8 +18,6 @@ const campos = { //CAMPOS EN FALSO QUE AL MOMENTO DE VALIDAR CAMBIARAN
 // Lete
     clave: false,
     clave2: false,
-//
-    clave: false
 // main
 }
 
