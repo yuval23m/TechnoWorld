@@ -16,6 +16,7 @@ body {
     background: #E5E5E5;
     background-repeat: no-repeat;
     background: linear-gradient(rgba(0, 0, 0, 0.605), rgba(0, 0, 0, 0)), url(../imagenes/fondo2prueba.webp);
+    background-image: url(../imagenes/bg4.jpg);
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;

@@ -46,10 +46,18 @@
             <!-- Grupo: Nombre completo -->
             <div class="formulario__grupo" id="grupo__nombre">
                 <label for="fullname" class="formulario__label">Nombre Completo</label>
+            </div>
                 <div class="formulario__grupo-input">
                     <input type="text" class="formulario__input" name="fullname" id="fullname" placeholder="Rodrigo Alonso Letelier Isami">
+            </div>
+                <label for="nombre" class="formulario__label">Nombre Completo</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Rodrigo Alonso Letelier Isami">
+            </div>
+            <div>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
+            </div>
+            <div>
                 <p class="formulario__input-error">El nombre solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
             </div>
             
@@ -69,18 +77,35 @@
                 <label for="clave" class="formulario__label">Contraseña</label>
                 <div class="formulario__grupo-input">
                     <input type="password" class="formulario__input" name="clave" id="clave" placeholder="Escriba su contraseña">
+
+                    <input type="password" class="formulario__input" name="clave" id="clave1" placeholder="Escriba su contraseña" required>
+
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">La contraseña es incorrecta</p>
             </div>
             <!-- Grupo: Telefono -->
-            <div class="formulario__grupo" id="grupo__telefoo">
+            <div class="formulario__grupo" id="grupo__telefoo">            <!-- Grupo: Contraseña 2 -->
+            <div class="formulario__grupo" id="grupo__clave2">
+                <label for="clave2" class="formulario__label">Contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input type="password" class="formulario__input" name="clave2" id="clave2" placeholder="Escriba su contraseña" required>
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Las contraseña no coinciden</p>
+            </div>
+            </div>
+            <!-- Grupo: Telefono -->
+            <div class="formulario__grupo" id="grupo__telefono">
                 <label for="telefono" class="formulario__label">Telefono Movil</label>
                 <div class="formulario__grupo-input">
                     <input type="number" placeholder="numero telefono" name="telefono" id = "telefono" class="formulario__grupo" required>
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">El telefono debe tener solo numeros.</p>
+            </div>
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
             </div>
             <div class="formulario__grupo formulario__grupo-btn-enviar">
                 <button type="submit" class="formulario__btn">Registrar</button>

@@ -317,9 +317,18 @@ main {
 #mensaje {
     background-color: #ffffff;
 }
-
 #grupo__fechanac{
     margin: auto;
+}
+#telefono{
+    margin: 12px 0px;
+    width: 100%;
+}
+
+#grupo__telefono{
+    margin: auto;
+    width: 100%;
+    height: 41px;
 }
 
 /* MEDIA QUERI OSEA RESPONSIVO */

@@ -163,68 +163,6 @@ h1 {
     -o-border-radius: 10px 100px / 120px;
 }
 
-#titulo li.welcome {
-    font-family: 'Press Start 2P', cursive;
-    color: white;
-    text-shadow: 0.05em 0 0 #ff0000, -0.025em -0.05em 0 #05fc05, 0.025em 0.05em 0 #0000ffbf;
-    text-align: center;
-    font-size: 60px;
-    margin: 40px 0px;
-    position: relative;
-    animation: cambiar-welcome 7s;
-    animation-fill-mode: forwards;
-    -webkit-animation: cambiar-welcome 7s;
-}
-
-@keyframes cambiar-welcome {
-    0% {
-        margin-top: 1000px;
-    }
-    20% {
-        margin-top: 0px;
-    }
-    35% {
-        margin-top: 100px;
-    }
-    40% {
-        margin-top: 100px;
-    }
-    50% {
-        margin-top: 100px;
-    }
-    60% {
-        margin-top: 150px;
-    }
-    70% {
-        margin-top: -200px;
-    }
-    80% {
-        margin-top: -200px;
-    }
-    90% {
-        margin-top: -200px;
-    }
-    100% {
-        margin-top: -200px;
-    }
-}
-
-#titulo li.slogan {
-    text-align: center;
-    font-size: 30px;
-    position: relative;
-    color: #ffffff;
-    text-shadow: 0.05em 0 0 #ff0000, -0.025em -0.05em 0 #05fc05, 0.025em 0.05em 0 #0000ffbf;
-    font-family: 'Press Start 2P', cursive;
-    margin: 51px 0px;
-    animation-delay: 7s;
-    animation: cambiar-slogan 14s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-    -webkit-animation: cambiar-slogan 14s;
-}
-
-
 /* ATRIBUTOS GENERALES DE TITULO */
 
 #titulo li.titulotxt {
@@ -235,33 +173,6 @@ h1 {
     position: relative;
     text-align: center;
     text-shadow: 0.05em 0 0 #ff0000, -0.025em -0.05em 0 #05fc05, 0.025em 0.05em 0 #0000ffbf;
-}
-
-@keyframes cambiar-slogan {
-    0% {
-        margin-top: 1000px;
-    }
-    20% {
-        margin-top: 0px;
-    }
-    35% {
-        margin-top: 100px;
-    }
-    40% {
-        margin-top: 100px;
-    }
-    50% {
-        margin-top: 100px;
-    }
-    60% {
-        margin-top: 150px;
-    }
-    70% {
-        margin-top: -200px;
-    }
-    100% {
-        margin-top: -200px;
-    }
 }
 
 .servicios {
@@ -781,14 +692,6 @@ a {
         left: -100px;
         text-align: right;
     }
-    #titulo li.welcome {
-        font-size: 20px;
-        margin: 125px 0px;
-    }
-    #titulo li.slogan {
-        font-size: 20px;
-        margin: 0px 0px;
-    }
     #titulo li.titulotxt {
         font-size: 18px;
         margin: 120px 0px;
@@ -903,14 +806,6 @@ a {
         left: -100px;
         text-align: right;
     }
-    #titulo li.welcome {
-        font-size: 20px;
-        margin: 125px 0px;
-    }
-    #titulo li.slogan {
-        font-size: 20px;
-        margin: 0px 0px;
-    }
     #titulo li.titulotxt {
         font-size: 20px;
         margin: 120px 0px;
@@ -931,14 +826,6 @@ a {
     #menu {
         width: 90%;
         /* ATRIBUTOS BORDER DE LA CAJA NAV */
-    }
-    #titulo li.welcome {
-        font-size: 30px;
-        margin: 130px 0px;
-    }
-    #titulo li.slogan {
-        font-size: 30px;
-        margin: 100px 0px;
     }
     #titulo li.titulotxt {
         font-size: 30px;
@@ -1009,14 +896,6 @@ a {
     #menu {
         width: 90%;
         /* ATRIBUTOS BORDER DE LA CAJA NAV */
-    }
-    #titulo li.welcome {
-        font-size: 30px;
-        margin: 130px 0px;
-    }
-    #titulo li.slogan {
-        font-size: 30px;
-        margin: 100px 0px;
     }
     #titulo li.titulotxt {
         font-size: 30px;
@@ -1141,18 +1020,10 @@ a {
     #contenedor5 {
         width: 70%;
     }
-    #titulo li.slogan {
-        font-size: 30px;
-        margin: 51px 0px;
-    }
     /* ATRIBUTOS GENERALES DE TITULO */
     #titulo li.titulotxt {
         font-size: 80px;
         margin: 90px 0px;
-    }
-    #titulo li.welcome {
-        font-size: 60px;
-        margin: 40px 0px;
     }
     .somos {
         position: relative;
