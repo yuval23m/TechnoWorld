@@ -33,12 +33,9 @@ const validarFormulario = (e) => {
             validarCampo(expresiones.telefono, e.target, 'telefono');
             break;
         case "clave":
-// Lete
-            validarCampo(expresiones.telefono, e.target, 'clave');
-            break;
+            validarCampo(expresiones.clave, e.target, 'clave');
         case "clave2":
-            validaClave();
-            break;
+            validaClave();      
     }
 }
 
