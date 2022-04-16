@@ -17,7 +17,7 @@ const campos = { //CAMPOS EN FALSO QUE AL MOMENTO DE VALIDAR CAMBIARAN
     telefono: false,
 // Lete
     clave: false,
-    clave2: false,
+    clave2: false
 // main
 }
 
@@ -57,7 +57,6 @@ function validaClave() {
         document.querySelector(`#grupo__clave2 i`).classList.remove('fa-check-circle');
         document.querySelector(`#grupo__clave2 .formulario__input-error`).classList.add('formulario__input-error-activo');
         campos['clave2'] = false;
-            validarCampo(expresiones.clave, e.target, 'clave');
 // main
     }
 }
