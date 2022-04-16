@@ -15,6 +15,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background: #E5E5E5;
     background-repeat: no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.605), rgba(0, 0, 0, 0)), url(../imagenes/fondo2prueba.webp);
     background-image: url(../imagenes/bg4.jpg);
     background-size: cover;
     background-position: center center;
@@ -166,7 +167,7 @@ main {
 .formulario__input:focus {
     border: 3px solid #0075FF;
     outline: none;
-    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+    box-shadow: 3px 0px 30px rgb(168, 162, 162);
 }
 
 
@@ -436,6 +437,10 @@ span i{
 a {
     color: #FFFF;
     text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+}
+
+input{
     font-family: 'Press Start 2P', cursive;
 }
 
