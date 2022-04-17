@@ -12,7 +12,7 @@ header {
 body{
     font-family: 'Press Start 2P', cursive;
     background-color: #ffffff;
-    background-image: url(../imagenes/back5.jpg);
+    background-image: url(../imagenes/bg4.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -100,7 +100,7 @@ body{
     color: white;
 }
 
-#suscripciones .lista{
+.lista{
     text-align: center;
     list-style: none;
     padding: 0px;
@@ -109,7 +109,7 @@ body{
     height: 500px;
 }
 
-#suscripciones .sus{
+#suscripciones {
     margin: 40px 30px;
 }
 

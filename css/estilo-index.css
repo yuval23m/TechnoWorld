@@ -8,13 +8,12 @@ body {
     background-color: #ffffff;
     background-image: url(../imagenes/bg4.jpg);
     background-position: center center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     /* ATRIBUTOS BACKGROUND DE BODY */
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Syne Mono', monospace;
 }
 
 h1,
@@ -139,7 +138,7 @@ h1 {
 #lista {
     list-style-type: none;
     margin: 0;
-    padding: 10;
+    padding: 10px;
 }
 
 #titulo {
@@ -442,7 +441,6 @@ h1 {
 }
 
 #articulo3 img {
-    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -450,7 +448,6 @@ h1 {
 }
 
 #articulo4 img {
-    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -458,7 +455,6 @@ h1 {
 }
 
 #articulo5 img {
-    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -707,7 +703,6 @@ a {
     }
     .contenedor3 {
         margin: auto;
-        padding: auto;
     }
 }
 
