@@ -2,21 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Press Start 2P', cursive;
-
 }
 
 body {
     background-color: #ffffff;
-    background-image: url(../imagenes/back5.jpg);
-    background-attachment: fixed;
+    background-image: url(../imagenes/bg4.jpg);
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     /* ATRIBUTOS BACKGROUND DE BODY */
     display: flex;
     flex-direction: column;
-    font-family: 'Press Start 2P', cursive;
-
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Syne Mono', monospace;
 }
 
 h1,
@@ -26,8 +24,6 @@ h4,
 h5,
 h6 {
     color: #ffffff;
-    font-family: 'Press Start 2P', cursive;
-
 }
 
 header {
@@ -44,8 +40,25 @@ header {
     /* ATRIBUTOS BACKGROUND DE LA SECCION PRODUCTOS */
 }
 
+#contenedor-articulo {
+    font-family: 'Syne Mono', monospace;
+}
+
+#contenedor-articulo2 {
+    font-family: 'Syne Mono', monospace;
+}
+
+#contenedor-articulo3 {
+    font-family: 'Syne Mono', monospace;
+}
+
+#contenedor-articulo4 {
+    font-family: 'Syne Mono', monospace;
+}
+
 .contenedor1 {
     color: #ffffff;
+    font-family: 'Syne Mono', monospace;
     margin: auto;
     max-width: 100%;
     overflow: hidden;
@@ -56,26 +69,36 @@ header {
 h1 {
     font-size: 50px;
 }
+
+
 /* CAMBIO COLOR LETRAS */
 
 .contenedor {
     margin: 5%;
     color: #ffffff;
+    font-family: 'Syne Mono', monospace;
 }
 
 .contenedor4 {
     color: #ffffff;
+    font-family: 'Syne Mono', monospace;
 }
 
 .contenedor5 {
     margin: 5%;
     color: #ffffff;
+    font-family: 'Syne Mono', monospace;
 }
 
 .contenedortext img {
     max-width: 100px;
     width: 200px;
 }
+
+.contenedortext h1{
+    font-family: 'Press Start 2P', cursive;
+}
+
 /* ATRIBUTOS GENERALES DE LA CAJA NAV */
 
 #menu {
@@ -116,15 +139,17 @@ h1 {
 #lista {
     list-style-type: none;
     margin: 0;
-    padding: 10px;
+    padding: 10;
 }
 
 #titulo {
     background-attachment: fixed;
-    background-image: url(../imagenes/back5.jg);
-    background-position: center c;
+    background-image: url(../imagenes/tecno.jpg);
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 10px 100px / 120px;
+    border: 5mm ridge #5038a85b;
     display: flex;
     flex-direction: column;
     height: 360px;
@@ -132,26 +157,33 @@ h1 {
     margin: 100px;
     overflow: hidden;
     padding: 0px;
+    -webkit-border-radius: 10px 100px / 120px;
+    -moz-border-radius: 10px 100px / 120px;
+    -ms-border-radius: 10px 100px / 120px;
+    -o-border-radius: 10px 100px / 120px;
 }
 
 /* ATRIBUTOS GENERALES DE TITULO */
 
-
 #titulo li.titulotxt {
-    color: rgb(255, 255, 255);
+    color: white;
     font-family: 'Press Start 2P', cursive;
     font-size: 80px;
+    margin: 90px 0px;
     position: relative;
     text-align: center;
     text-shadow: 0.05em 0 0 #ff0000, -0.025em -0.05em 0 #05fc05, 0.025em 0.05em 0 #0000ffbf;
 }
 
-li.servicios {
+.servicios {
     color: white;
+    font-family: 'Syne Mono', monospace;
+    margin: 0px;
+    padding: 0px;
     position: relative;
     text-align: center;
     text-shadow: 0.05em 0 0 #ff0000, -0.025em -0.05em 0 #05fc05, 0.025em 0.05em 0 #0000ffbf;
-    font-size:15px;
+    top: -150px;
 }
 
 #lista li i{
@@ -410,6 +442,7 @@ li.servicios {
 }
 
 #articulo3 img {
+    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -417,6 +450,7 @@ li.servicios {
 }
 
 #articulo4 img {
+    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -424,6 +458,7 @@ li.servicios {
 }
 
 #articulo5 img {
+    float: center;
     height: 350px;
     max-height: 500%;
     max-width: 500%;
@@ -575,9 +610,11 @@ a {
         /* ATRIBUTOS BORDER DE LA CAJA NAV */
     }
     #lista {
-        display: flex;
-        flex-direction: column;
+        font-size: 10px;
+        margin: 0px -45px;
         padding: 0px;
+        overflow: auto;
+        text-align: left;
     }
     div.vinculos-header {
         display: flex;
@@ -670,6 +707,7 @@ a {
     }
     .contenedor3 {
         margin: auto;
+        padding: auto;
     }
 }
 
@@ -985,7 +1023,7 @@ a {
     /* ATRIBUTOS GENERALES DE TITULO */
     #titulo li.titulotxt {
         font-size: 80px;
-        margin: 90px 0 50px 0;
+        margin: 90px 0px;
     }
     .somos {
         position: relative;
