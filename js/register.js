@@ -4,14 +4,21 @@ const inputs = document.querySelectorAll('#formulario input');
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // LETRAS Y ESPACIOS, PUEDEN LLEVAR ACENTOS
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+//Lete
     telefono: /^\d{8,9}$/, // 8 A 9 NUMEROS
-
+    clave: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    clave2: /^[a-zA-ZÀ-ÿ\s]{1,40}$/
+// main
 }
 
 const campos = { //CAMPOS EN FALSO QUE AL MOMENTO DE VALIDAR CAMBIARAN
     nombre: false,
     correo: false,
     telefono: false,
+// Lete
+    clave: false,
+    clave2: false
+// main
 }
 
 const validarFormulario = (e) => {
@@ -24,7 +31,30 @@ const validarFormulario = (e) => {
             break;
         case "telefono":
             validarCampo(expresiones.telefono, e.target, 'telefono');
-            break;   
+            break;
+        case "clave":
+            validarCampo(expresiones.clave, e.target, 'clave');
+        case "clave2":
+            validaClave();      
+    }
+}
+
+function validaClave() {
+    if (document.getElementById(`clave`).value == document.getElementById(`clave2`).value) {
+        document.getElementById(`grupo__clave2`).classList.remove('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__clave2`).classList.add('formulario__grupo-correcto');
+        document.querySelector(`#grupo__clave2 i`).classList.add('fa-check-circle');
+        document.querySelector(`#grupo__clave2 i`).classList.remove('fa-times-circle');
+        document.querySelector(`#grupo__clave2 .formulario__input-error`).classList.remove('formulario__input-error-activo');
+        campos['clave2'] = true;
+    } else {
+        document.getElementById(`grupo__clave2`).classList.add('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__clave2`).classList.remove('formulario__grupo-correcto');
+        document.querySelector(`#grupo__clave2 i`).classList.add('fa-times-circle');
+        document.querySelector(`#grupo__clave2 i`).classList.remove('fa-check-circle');
+        document.querySelector(`#grupo__clave2 .formulario__input-error`).classList.add('formulario__input-error-activo');
+        campos['clave2'] = false;
+// main
     }
 }
 
@@ -56,7 +86,7 @@ formulario.addEventListener('submit', (e) => { //QUE AL PRESIONAR EL BOTON ENVIA
 
     const terminos = document.getElementById('terminos'); // VALIDAR EN EL CHECK DE LOS TERMINOS QUE VALIDE SI EL RESTO ESTA BIEN, PARA ASI ENVIAR EL MENSAJE DE EXITO
     // da error en la consola el checked nosepq if (campos.nombre && campos.correo && campos.telefono && terminos.checked) {
-    if (campos.nombre && campos.correo && campos.telefono) { 
+    if (campos.nombre && campos.correo && campos.telefono && campos.clave && campos.clave2) { 
         formulario.reset();
 
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
