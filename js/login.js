@@ -84,3 +84,8 @@ formulario.addEventListener('submit', (e) => { //QUE AL PRESIONAR EL BOTON ENVIA
         document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
     }
 });
+
+//FUNCION PARA REDIRIGIR A LA PAGINA PRINCIPAL DSP DE LOGEARSE
+function redirigir(){
+    setTimeout(function(){window.location.href = "index.html"; },3000);
+}
