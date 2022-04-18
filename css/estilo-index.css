@@ -6,7 +6,7 @@
 
 body {
     background-color: #ffffff;
-    background-image: url(../imagenes/bg4.jpg);
+    background-image: url(../imagenes/tecn2.jpg);
     background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -143,12 +143,12 @@ h1 {
 
 #titulo {
     background-attachment: fixed;
-    background-image: url(../imagenes/tecno.jpg);
+    background-image: url(../imagenes/bg4.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px 100px / 120px;
-    border: 5mm ridge #5038a85b;
+
     display: flex;
     flex-direction: column;
     height: 360px;
