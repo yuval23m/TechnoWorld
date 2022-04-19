@@ -12,7 +12,6 @@
 /*CUERPO*/
 
 body {
-    font-family: 'Roboto', sans-serif;
     background: #E5E5E5;
     background-repeat: no-repeat;
     background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0)), url(../imagenes/bg4.jpg);
@@ -27,7 +26,7 @@ header {
     max-width: 100%;
     width: 90%;
 }
-
+/* Barra de navegación, atributos generales*/
 #menu {
     background-color: #212529;
     opacity: 90%;

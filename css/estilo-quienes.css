@@ -5,8 +5,6 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Syne Mono', monospace;
     /* ATRIBUTOS BACKGROUND DE BODY */
     background-repeat: no-repeat;
     background-image: url(../imagenes/bg4.jpg);

@@ -87,5 +87,5 @@ formulario.addEventListener('submit', (e) => { //QUE AL PRESIONAR EL BOTON ENVIA
 
 //FUNCION PARA REDIRIGIR A LA PAGINA PRINCIPAL DSP DE LOGEARSE
 function redirigir(){
-    setTimeout(function(){window.location.href = "index.html"; },3000);
+    setTimeout(function(){window.location.href = "index2.html"; },3000);
 }

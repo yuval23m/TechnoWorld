@@ -7,14 +7,13 @@
 body {
     background-color: #ffffff;
     background-image: url(../imagenes/bg4.jpg);
+    background-position: center center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     /* ATRIBUTOS BACKGROUND DE BODY */
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Syne Mono', monospace;
 }
 
 h1,
@@ -166,7 +165,7 @@ h1 {
 /* ATRIBUTOS GENERALES DE TITULO */
 
 #titulo li.titulotxt {
-    color: rgb(255, 255, 255);
+    color: white;
     font-family: 'Press Start 2P', cursive;
     font-size: 80px;
     margin: 90px 0px;
