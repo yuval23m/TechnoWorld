@@ -36,6 +36,10 @@ $(document).ready(function () {
             pw2: {
                 equalTo: "Las contraseña no coinciden"
             },
+            correo: {
+                required: "Ingrese correo",
+                email: "Ingrese un correo válido"
+            },
             telefono: "Ingrese telefono"
         }
     });
