@@ -7,13 +7,11 @@ $(document).ready(function () {
                 required: true,
                 minlength: 2  //for length of lastname
             },
-            clave: {
+            pw1: {
                 required: true,
                 minlength: 5
             },
-            clave2: {
-                required: true,
-                minlength: 5,
+            pw2: {
                 equalTo: "#clave" //for checking both passwords are same or not
             },
             correo: {
@@ -31,13 +29,11 @@ $(document).ready(function () {
                 required: "Ingrese nombre",
                 minlength: "El Nombre debe ser de largo minimo 2"
             },
-            clave: {
-                required: "Please enter a password",
+            pw1: {
+                required: "Por favor ingrese una contraseña",
                 minlength: "La contraseña debe ser de largo minimo 5"
             },
-            clave2: {
-                required: "Ingrese contraseña",
-                minlength: "La contraseña debe ser de largo minimo 5",
+            pw2: {
                 equalTo: "Las contraseña no coinciden"
             },
             telefono: "Ingrese telefono"

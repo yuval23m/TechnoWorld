@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
 }
 
 
@@ -459,6 +460,11 @@ a {
     color: #FFFF;
     text-decoration: none;
     font-family: 'Press Start 2P', cursive;
+}
+
+.error{
+    color: white;
+    -webkit-text-stroke: 1px red;
 }
 
 @media screen and (max-width:800px) {
