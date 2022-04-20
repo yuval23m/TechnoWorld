@@ -123,6 +123,57 @@ h1 {
 
 }
 
+#lista li i{
+    font-size: 30px;
+    color: white;
+    padding: 0px 10px;
+    
+}
+
+#lista a {
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    padding: 0px 7px;
+    text-decoration: none;
+}
+
+#lista li {
+    display: inline;
+    margin: 0%;
+    padding: 15px;
+    transition: all 300ms;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+}
+
+#lista li:hover {
+    background-color: #000000;
+    padding: 20px 0px;
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
+#lista {
+    list-style-type: none;
+    padding: 10px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+}
+
 #main{
     margin: auto;
     padding: 0%;
@@ -183,57 +234,6 @@ h1 {
     text-align: center;
     text-shadow: 0.05em 0 0 #ff0000, -0.025em -0.05em 0 #05fc05, 0.025em 0.05em 0 #0000ffbf;
     top: -150px;
-}
-
-#lista li i{
-    font-size: 30px;
-    color: white;
-    padding: 0px 10px;
-    
-}
-
-#lista a {
-    color: #ffffff;
-    font-family: 'Press Start 2P', cursive;
-    font-weight: bold;
-    padding: 0px 7px;
-    text-decoration: none;
-}
-
-#lista li {
-    display: inline;
-    margin: 0%;
-    padding: 15px;
-    transition: all 300ms;
-    -webkit-transition: all 300ms;
-    -moz-transition: all 300ms;
-    -ms-transition: all 300ms;
-    -o-transition: all 300ms;
-}
-
-#lista li:hover {
-    background-color: #000000;
-    padding: 20px 0px;
-    transform: scale(1.15);
-    -webkit-transform: scale(1.15);
-    -moz-transform: scale(1.15);
-    -ms-transform: scale(1.15);
-    -o-transform: scale(1.15);
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
-}
-
-#lista {
-    list-style-type: none;
-    padding: 10px;
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
 }
 
 .segundos {
