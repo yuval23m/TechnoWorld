@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.get("/js/datos.json", 
+    $.get("js/datos.json", 
     function(data){
         $.each(data.datos,(function (i, item) {
             $("#items").append('<div class = "carousel-item">'
