@@ -3,7 +3,7 @@ $(document).ready(function(){
     function(data){
         $.each(data.datos,(function (i, item) {
             $("#items").append('<div class = "carousel-item">'
-                + '<img src="'+item.img+'" class="d-block w-100" alt="..."></img>' +
+                + '<img src="'+item.img+'" class="d-block w-100" alt="Ejemplo_foto_nosotros"></img>' +
                 '<h1>'+ item.name +'</h1>' +
                 '<p>'+ item.desc +'</p>' +
             '</div>');
