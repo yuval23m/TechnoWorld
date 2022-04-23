@@ -125,7 +125,8 @@ main {
 .carousel-inner p {
     position: absolute;
     top: 30%;
-    left: 25%;
+    left: 38%;
+
 }
 
 
@@ -133,8 +134,11 @@ main {
 
 .carousel-inner h1 {
     position: absolute;
-    top: -90%;
+    top: -30%;
     left: 40%;
+    color: #ffffff;
+    background: #212529;
+    border-radius: 10px;
 }
 
 
