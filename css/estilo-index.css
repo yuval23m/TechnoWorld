@@ -999,14 +999,18 @@ a {
 		color: #c7c7c7;
 		border-left: 5px solid transparent;
 		transition: all 400ms ease;
-	}
+		-webkit-transition: all 400ms ease;
+		-moz-transition: all 400ms ease;
+		-ms-transition: all 400ms ease;
+		-o-transition: all 400ms ease;
+}
 	.cont-menu nav a:hover{
         transform: scale(1.15);
         -webkit-transform: scale(1.15);
         -moz-transform: scale(1.15);
         -ms-transform: scale(1.15);
         -o-transform: scale(1.15);
-	}
+}
 	.cont-menu label{
 		position: absolute;
 		right: 5px;
