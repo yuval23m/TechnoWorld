@@ -141,6 +141,10 @@ main {
     border-radius: 10px;
 }
 
+.carousel-item{
+    background-color: #1f2226;
+    opacity: 95%;
+}
 
 /* FOOTER */
 
