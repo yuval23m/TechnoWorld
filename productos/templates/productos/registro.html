@@ -1,0 +1,139 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'productos/css/estilo-registro.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav id="menu">
+            <section id="contMenu">
+                <ul id="lista">
+                    <li>
+                        <a href="index2"> <i class="fa-solid fa-house"></i>Inicio</a>
+                    </li>
+                    <li>
+                       
+                        <a href="contacto" target="_blank"><i class="fa-solid fa-phone"></i>Contacto</a></li>
+                    <li>
+                        <a href="quienes-somos"><i class="fa-solid fa-users"></i>Quiénes somos</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-gear"></i>Ajustes</a>
+                    </li>
+                    <li>
+                        
+                        <a href="version-pro"><i class="fa-solid fa-crown"></i>Pro</a>
+                    </li>
+                </ul>
+            </section>
+        </nav>  
+    </header>
+    <span>
+        <i class="fa-solid fa-globe"></i>
+        <p class="parrafo">Más de 4.000.000 de usuarios están con TECHno World!</p>
+        <p class="parrafo">Sé uno de nosotros!</p>
+    </span>
+    <main>
+        <form action="https://formspree.io/f/xvolqvdb" class="formulario" id="formulario" method="POST">
+            <!-- Grupo: Nombre completo -->
+            <div class="formulario__grupo" id="grupo__nombre">
+                <label for="nombre" class="formulario__label">Nombre Completo</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Rodrigo Alonso Letelier Isami" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El nombre solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+            </div>
+            
+            <!-- Grupo: Correo Electronico -->
+            <div class="formulario__grupo" id="grupo__correo">
+                <label for="correo" class="formulario__label">Correo Electrónico</label>
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+            </div>
+            
+
+            <!-- Grupo: Contraseña -->
+            <div class="formulario__grupo" id="grupo__clave">
+                <label for="clave" class="formulario__label">Contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input type="password" class="formulario__input" name="pw1" id="clave" placeholder="Escriba su contraseña" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">La contraseña es incorrecta</p>
+            </div>
+            <!-- Grupo: Contraseña 2 -->
+            <div class="formulario__grupo" id="grupo__clave2">
+                <label for="clave2" class="formulario__label">Contraseña</label>
+                <div class="formulario__grupo-input">
+                    <input type="password" class="formulario__input" name="pw2" id="clave2" placeholder="Escriba su contraseña" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">Las contraseña no coinciden</p>
+            </div>
+            <!-- Grupo: Telefono -->
+            <div class="formulario__grupo" id="grupo__telefono">
+                <label for="telefono" class="formulario__label">Telefono Movil</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" placeholder="numero telefono" name="telefono" id = "telefono" class="formulario__grupo" >
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error">El telefono debe tener solo numeros.</p>
+            </div>
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+            </div>
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn">Registrar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Registro exitoso, Dirigete al inicio de sesion.</p>
+                <a href="inicio_sesion.html">Inicia sesion aqui!</a>
+            </div>
+        </form>
+    </main>
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="index2.html">
+                        TECHn <i class="fa-solid fa-globe"></i> World
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Amantes de la tecnología</p>
+                <p>entregando el mejor software y hardware hacia ustedes!</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2021 <b>TECHn <i class="fa-solid fa-globe"></i> World</b> - Todos los Derechos Reservados.</small>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="js/registro_jquery.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0113bec5a9.js" crossorigin="anonymous"></script>
+</body>
+</html>
