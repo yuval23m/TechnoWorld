@@ -4,19 +4,19 @@
         "id": "1",
         "name": "Cristian",
         "desc": "Programador de proyecto",
-        "img": "/TechnoWorld/imagenes/Gigachad-removebg-preview.png"
+        "img": "http://127.0.0.1:8000/static/productos/imagenes/Gigachad-removebg-preview.png"
       },
       {
         "id": "2",
         "name": "Yerko",
         "desc": "Programador de proyecto",
-        "img": "/TechnoWorld/imagenes/Gigachad-removebg-preview.png"
+        "img": "http://127.0.0.1:8000/static/productos/imagenes/Gigachad-removebg-preview.png"
       },
       {
         "id": "3",
         "name": "Rodrigo",
         "desc": "Programador de proyecto",
-        "img": "/TechnoWorld/imagenes/Gigachad-removebg-preview.png"
+        "img": "http://127.0.0.1:8000/static/productos/imagenes/Gigachad-removebg-preview.png"
       }
     ]
   }
