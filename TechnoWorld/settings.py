@@ -143,8 +143,8 @@ if DEBUG:
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '821895794524-920t85uhklm7qag9gqkr9cosp4vqbode.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': '821895794524-ord02lmrglr2r32fmmri4dc3cpf315gd.apps.googleusercontent.com',
+            'secret': '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',
             'key': ''
         }
     }
