@@ -20,14 +20,14 @@ def subir_img_prod(request):
   
         if form.is_valid():
             form.save()
-            return redirect('Exito')
+            return HttpResponse('Subido exitosamente')
     else:
         form = Img()
     return render(request, 'productos/subir_img.html', {'form' : form})
   
   
-def success(request):
-    return HttpResponse('Subido exitosamente')
+##def success(request):
+  ##  return HttpResponse('Subido exitosamente')
 
 def index(request):
     contexto={"nombre":"HOLALJHLHLKHLK"}
