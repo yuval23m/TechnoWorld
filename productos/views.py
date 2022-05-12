@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Producto
 
 
 class Persona:
@@ -12,7 +13,11 @@ class Persona:
 # Create your views here.
 def index(request):
     contexto={"nombre":"HOLALJHLHLKHLK"}
-    return render(request, 'productos/index.html', contexto)
+    producto = Producto.objects.all()
+    datos = {
+        'productos':producto
+    }
+    return render(request, 'productos/index.html', datos)
 
 def contacto(request):
     return render(request, 'productos/contacto.html')

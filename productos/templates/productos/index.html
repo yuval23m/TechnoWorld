@@ -53,6 +53,7 @@
         </div>
         <div id="productos">
             <h1>Productos</h1>
+
             <div class="contenido-header">
                 <section>
                     <div id="contenedor-articulo" class="carousel slide" data-bs-ride="carousel">
@@ -65,24 +66,54 @@
                             <li class="carousel-item active">
                                 <img src="{% static 'productos/imagenes/gigabyte1.png'%}" class="d-block w-20" alt="Slide 1">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Gigabyte</h5>
+                                    {% for prod in productos%}
+                                    <tr>
+                                        <td>{{prod.nombre}}</td>
+                                        <td>{{prod.precio}}</td>
+                                        <td>{{prod.marca}}</td>
+                                    </tr> 
+                                    {% endfor %}
+                                                                        <!--
+                                        <h5>Gigabyte</h5>
                                     <p>Gigabyte RTX 3090 Gaming OC 24G</p>
+                                    -->
+                                    
                                     <a class="compra-aqui" href="#">Compra aquí!</a>
                                 </div>
                             </li>
                             <li class="carousel-item">
                                 <img src="{% static 'productos/imagenes/gigabyte2.png'%}" class="d-block w-20" alt="Slide 2">
                                 <div class="carousel-caption d-none d-md-block">
+                                    {% for prod in productos%}
+                                    <tr>
+                                        <td>{{prod.nombre}}</td>
+                                        <td>{{prod.precio}}</td>
+                                        <td>{{prod.marca}}</td>
+                                    </tr> 
+                                    {% endfor %}
+                                    <!--
                                     <h5>Gigabyte</h5>
                                     <p>Graphic Card Gigabyte AORUS GeForce GTX 1080 Ti 12GB GV</p>
+                                 -->
+                                    
                                     <a class="compra-aqui" href="#">Compra aquí!</a>
                                 </div>
                             </li>
                             <li class="carousel-item">
                                 <img src="{% static 'productos/imagenes/gigabyte3.png'%}" class="d-block w-20" alt="Slide 3">
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h5>Gigabyte</h5>
+                                    {% for prod in productos%}
+                                    <tr>
+                                        <td>{{prod.nombre}}</td>
+                                        <td>{{prod.precio}}</td>
+                                        <td>{{prod.marca}}</td>
+                                    </tr> 
+                                    {% endfor %}
+                                    <!--
+                                        <h5>Gigabyte</h5>
                                     <p>Gigabyte RTX 3090 Gaming OC 24G</p>
+                                    -->
+                                    
                                     <a class="compra-aqui" href="#">Compra aquí!</a>
                                 </div>
                             </li>
