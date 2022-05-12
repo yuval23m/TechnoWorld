@@ -1,5 +1,8 @@
+from django.contrib import admin
+from django.conf import settings
 from django.urls import path
-from .views import index, contacto, registro, sesion, quienes, version
+from django.conf.urls.static import static
+from .views import *
 
 urlpatterns = [
     path ('', index, name="Inicio"),
@@ -9,8 +12,9 @@ urlpatterns = [
     path ('registro/', registro, name="Registro"),
     path ('quienes-somos/', quienes, name="Quienes-Somos"),
     path ('version-pro/', version, name="Version-Pro"),
-    
-
-
-    
+    path ('subir-img/', subir_img_prod, name="Subir-Foto"),
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL,
+                              document_root=settings.MEDIA_ROOT)

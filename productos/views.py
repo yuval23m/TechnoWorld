@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
 from .models import Producto
-
+from .forms import *
 
 class Persona:
     def __init__(self, nombre, edad, telefono):
@@ -11,6 +12,23 @@ class Persona:
 
 
 # Create your views here.
+# Create your views here.
+def subir_img_prod(request):
+  
+    if request.method == 'POST':
+        form = Img(request.POST, request.FILES)
+  
+        if form.is_valid():
+            form.save()
+            return redirect('Exito')
+    else:
+        form = Img()
+    return render(request, 'productos/subir_img.html', {'form' : form})
+  
+  
+def success(request):
+    return HttpResponse('Subido exitosamente')
+
 def index(request):
     contexto={"nombre":"HOLALJHLHLKHLK"}
     producto = Producto.objects.all()
