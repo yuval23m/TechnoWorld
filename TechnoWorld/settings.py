@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -142,8 +143,8 @@ if DEBUG:
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '123',
-            'secret': '456',
+            'client_id': '821895794524-920t85uhklm7qag9gqkr9cosp4vqbode.apps.googleusercontent.com',
+            'secret': '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',
             'key': ''
         }
     }

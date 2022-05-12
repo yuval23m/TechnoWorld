@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-
+{%load socialaccount%}
 {% load i18n %}
 {% load account socialaccount %}
-
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<!-- 
+
+-->
 
 <h1>{% trans "Sign In" %}</h1>
 
@@ -15,7 +17,9 @@
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
 of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
+{% if user.is_authenticated %}
+  <h1>Autenticado con Google<h1>
+{% endif %}
 <div class="socialaccount_ballot">
 
   <ul class="socialaccount_providers">
