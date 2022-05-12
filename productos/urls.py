@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.conf import settings
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
     path ('', index, name="Inicio"),
+    path ('accounts/', include('allauth.urls'), name="Inicio"),
     path ('index2/', contacto, name="Index2"),
     path ('contacto/', contacto, name="Contacto"),
     path ('inicio-sesion/', sesion, name="Inicio-Sesion"),

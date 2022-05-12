@@ -33,12 +33,18 @@ ALLOWED_HOSTS = ['127.0.0.1','localhost','overlife.club','technoworld.overlife.c
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'productos',
+     
+    #3  #django-allauth apps
+    'django.contrib.auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +67,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+            # 1
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -113,6 +120,26 @@ USE_I18N = True
 
 USE_TZ = True
 
+## 2
+AUTHENTICATION_BACKENDS = [
+
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+   
+]
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+# 4 Allauth Social media
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '123',
+            'secret': '456',
+            'key': ''
+        }
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
