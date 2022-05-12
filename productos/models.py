@@ -19,7 +19,7 @@ class Producto(models.Model):
     idpro = models.AutoField(primary_key=True,verbose_name='ID')
     nombre = models.CharField(max_length=20, verbose_name='Nombre')
     precio = models.IntegerField(verbose_name='Precio')
-
+    img = models.ImageField(upload_to = 'fotos', null=True)
     marca = models.CharField(max_length=20,null=True, blank=True, verbose_name='Marca')
     tipo = models.ForeignKey(TipoProducto,null=True, on_delete=models.CASCADE)
 
