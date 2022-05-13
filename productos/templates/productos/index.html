@@ -57,12 +57,24 @@
             <div class="contenido-header">
                 <section>
                     <div id="contenedor-articulo" class="carousel slide" data-bs-ride="carousel">
+                    <!--No toma bien los indices...
+                            <ol id="indicadores1" class="carousel-indicators">
+                            {% for prod in productos%}
+                            {%if forloop.first%}
+                            <li data-bs-target="#contenedor-articulo" data-bs-slide-to="{{prod}}" class="active"></li>
+                            {%endif%}
+                            {%if forloop.counter>1%}
+                            <li data-bs-target="#contenedor-articulo" data-bs-slide-to="{{prod}}"></li>
+                            {%endif%}
+                            {% endfor %}
+                        </ol>
+                    -->   
                         <ul id="articulo1" class="carousel-inner">
                            <!-- <li class="carousel-item active"> --> 
                               <!--  <img src="{% static 'productos/imagenes/gigabyte1.png'%}" class="d-block w-20" alt="Slide 1"> --> 
                               <!--  <div class="carousel-caption d-none d-md-block"> --> 
                                     {% for prod in productos%}
-                                        {%if forloop.counter == 1%}
+                                        {%if forloop.first%}
                                             <li class="carousel-item active">
                                         {% else %}
                                             <li class="carousel-item">        
@@ -72,8 +84,8 @@
                                         <tr>
                                             <div class="carousel-caption d-none d-md-block">
                                                 <td>{{prod.nombre}}</td>
-                                                <td>{{prod.precio}}</td>
-                                                <td>{{prod.marca}}</td>
+                                                <td>Precio {{prod.precio}}</td>
+                                                <td>Marca {{prod.marca}}</td>
                                         </tr>
                                         <a class="compra-aqui" href="#">Compra aquí!</a>
                                     {% endfor %}
