@@ -1,3 +1,5 @@
+import os
+from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Producto
@@ -30,10 +32,9 @@ def subir_img_prod(request):
   ##  return HttpResponse('Subido exitosamente')
 
 def index(request):
-    contexto={"nombre":"HOLALJHLHLKHLK"}
     producto = Producto.objects.all()
     datos = {
-        'productos':producto
+        'productos':producto,
     }
     return render(request, 'productos/index.html', datos)
 

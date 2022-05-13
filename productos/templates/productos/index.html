@@ -57,66 +57,30 @@
             <div class="contenido-header">
                 <section>
                     <div id="contenedor-articulo" class="carousel slide" data-bs-ride="carousel">
-                        <ol id="indicadores1" class="carousel-indicators">
-                            <li data-bs-target="#contenedor-articulo" data-bs-slide-to="0" class="active"></li>
-                            <li data-bs-target="#contenedor-articulo" data-bs-slide-to="1"></li>
-                            <li data-bs-target="#contenedor-articulo" data-bs-slide-to="2"></li>
-                        </ol>
                         <ul id="articulo1" class="carousel-inner">
-                            <li class="carousel-item active">
-                                <img src="{% static 'productos/imagenes/gigabyte1.png'%}" class="d-block w-20" alt="Slide 1">
-                                <div class="carousel-caption d-none d-md-block">
+                           <!-- <li class="carousel-item active"> --> 
+                              <!--  <img src="{% static 'productos/imagenes/gigabyte1.png'%}" class="d-block w-20" alt="Slide 1"> --> 
+                              <!--  <div class="carousel-caption d-none d-md-block"> --> 
                                     {% for prod in productos%}
-                                    <tr>
-                                        <td>{{prod.nombre}}</td>
-                                        <td>{{prod.precio}}</td>
-                                        <td>{{prod.marca}}</td>
-                                    </tr> 
+                                        {%if forloop.counter == 1%}
+                                            <li class="carousel-item active">
+                                        {% else %}
+                                            <li class="carousel-item">        
+                                        {% endif %}
+                                        
+                                        <img src="{{MEDIA_URL}}{{prod.img}}" class="d-block w-20" alt="Slide {{prod}}">
+                                        <tr>
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <td>{{prod.nombre}}</td>
+                                                <td>{{prod.precio}}</td>
+                                                <td>{{prod.marca}}</td>
+                                        </tr>
+                                        <a class="compra-aqui" href="#">Compra aquí!</a>
                                     {% endfor %}
-                                                                        <!--
-                                        <h5>Gigabyte</h5>
-                                    <p>Gigabyte RTX 3090 Gaming OC 24G</p>
-                                    -->
                                     
-                                    <a class="compra-aqui" href="#">Compra aquí!</a>
                                 </div>
                             </li>
-                            <li class="carousel-item">
-                                <img src="{% static 'productos/imagenes/gigabyte2.png'%}" class="d-block w-20" alt="Slide 2">
-                                <div class="carousel-caption d-none d-md-block">
-                                    {% for prod in productos%}
-                                    <tr>
-                                        <td>{{prod.nombre}}</td>
-                                        <td>{{prod.precio}}</td>
-                                        <td>{{prod.marca}}</td>
-                                    </tr> 
-                                    {% endfor %}
-                                    <!--
-                                    <h5>Gigabyte</h5>
-                                    <p>Graphic Card Gigabyte AORUS GeForce GTX 1080 Ti 12GB GV</p>
-                                 -->
-                                    
-                                    <a class="compra-aqui" href="#">Compra aquí!</a>
-                                </div>
-                            </li>
-                            <li class="carousel-item">
-                                <img src="{% static 'productos/imagenes/gigabyte3.png'%}" class="d-block w-20" alt="Slide 3">
-                                <div class="carousel-caption d-none d-md-block">
-                                    {% for prod in productos%}
-                                    <tr>
-                                        <td>{{prod.nombre}}</td>
-                                        <td>{{prod.precio}}</td>
-                                        <td>{{prod.marca}}</td>
-                                    </tr> 
-                                    {% endfor %}
-                                    <!--
-                                        <h5>Gigabyte</h5>
-                                    <p>Gigabyte RTX 3090 Gaming OC 24G</p>
-                                    -->
-                                    
-                                    <a class="compra-aqui" href="#">Compra aquí!</a>
-                                </div>
-                            </li>
+                           
                             <!-- Carousel controls -->
                             <li>
                             <a class="carousel-control-prev" href="#contenedor-articulo" data-bs-slide="prev">
