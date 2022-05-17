@@ -1,0 +1,10 @@
+.post-form label{
+    background-color: rgb(128, 94, 94);
+    font-size: 50px;
+}
+.post-form input{
+    background-color: rgb(255, 0, 0);
+    font-size: 30px;
+    border-radius: 50%;
+}
+
