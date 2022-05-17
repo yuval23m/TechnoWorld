@@ -7,5 +7,6 @@ class Img(forms.ModelForm):
  
         model = Producto  
         #Incluye todos los campos del modelo del producto
-        fields = '__all__'
-        
+        #fields = '__all__'
+        #Incluye 1x1 los campos del modelo del producto
+        fields = ['nombre','precio','img','marca','tipo']
