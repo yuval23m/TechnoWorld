@@ -51,7 +51,13 @@ def eliminar_prod(request, ID):
     }
     producto.delete()
     
-    return render(request, 'productos/index.html', datos)
+    return redirect(to='ListarProducto')
+def listar_producto(request):
+    producto = Producto.objects.all()
+    datos = {
+        'productos':producto,
+    }
+    return render(request, 'productos/lista_producto.html', datos)
 ##def success(request):     
   ##  return HttpResponse('Subido exitosamente')
 
