@@ -14,6 +14,8 @@ urlpatterns = [
     path ('quienes-somos/', quienes, name="Quienes-Somos"),
     path ('version-pro/', version, name="Version-Pro"),
     path ('subir-img/', subir_img_prod, name="Subir-Foto"),
+    path ('modificar/<ID>', modificar_pro, name="Modificar"),
+    path ('eliminar/<ID>', eliminar_prod, name="Eliminar"),
 ]
 
 if settings.DEBUG:
