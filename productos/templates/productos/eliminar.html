@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1"> LISTA DE PRODUCTOS TECHNOWORLD
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Marca</th>
+            <th>Tipo</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        {% for prod in productos %}
+        <tr>
+            <td>{{prod.nombre}}</td>
+            <td>{{prod.precio}}</td>
+            <td>{{prod.narca}}</td>
+            <td>{{prod.tipo}}</td>
+            <td><a href="{% url 'modificar_pro' prod.idpro %}"></a>Modificar</td>
+            <td><a href="{% url 'eliminar_prod' prod.idpro %}"></a>Eliminar</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

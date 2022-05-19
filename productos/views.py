@@ -26,9 +26,33 @@ def subir_img_prod(request):
     else:
         form = Img()
     return render(request, 'productos/subir_img.html', {'form' : form})
+
+
+def modificar_pro(request, ID):
+    producto = Producto.objects.get(idpro=ID)
+    
+    datos = {
+        'form':Img(instance=producto)
+    }
+    
+    if(request.method == 'POST'):
+        form = Img(request.POST,request.FILES, instance=producto)
+        if form.is_valid():
+            form.save()
+            datos['mensaje'] = 'Modificado correctamente'
+    
+    return render(request, 'productos/modificar.html', datos)
   
-  
-##def success(request):
+ 
+def eliminar_prod(request, ID):
+    producto = Producto.objects.get(idpro=ID)
+    datos = {
+        'form':Img(instance=producto)
+    }
+    producto.delete()
+    
+    return render(request, 'productos/index.html', datos)
+##def success(request):     
   ##  return HttpResponse('Subido exitosamente')
 
 def index(request):
