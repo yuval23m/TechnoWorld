@@ -13,8 +13,9 @@
     <form method = "post" class="clase-form" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class = "save btn btn-default">Subir</button>
+        <button type="submit" class = "save btn btn-primary">Subir</button>
         <button type="reset" class = "btn btn-secondary">Reset</button>
+        <a class="btn btn-danger" href="{% url 'ListarProducto' %}" role="button">Volver</a>
     </form>
 </body>
 
