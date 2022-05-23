@@ -99,9 +99,6 @@ h1 {
     font-family: 'Press Start 2P', cursive;
 }
 
-
-/* ATRIBUTOS GENERALES DE LA CAJA NAV */
-
 #titulo {
     background-attachment: fixed;
     background-image: url(../imagenes/tecno.jpg);
@@ -490,162 +487,9 @@ a {
     color: #FFFF;
 }
 
-@media screen and (max-width:800px) {
-    .capa {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: -1;
-        top: 0;
-        left: 0;
-    }
-    /*Estilos para el encabezado*/
-    .header {
-        width: 100%;
-        height: 100px;
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: auto;
-    }
-    .container .btn-menu,
-    .logo {
-        float: left;
-        line-height: 100px;
-    }
-    .container .btn-menu label {
-        color: #fff;
-        font-size: 25px;
-        cursor: pointer;
-    }
-    .logo h1 {
-        color: #fff;
-        font-weight: 400;
-        font-size: 22px;
-        margin-left: 10px;
-    }
-    .container .menu {
-        float: right;
-        line-height: 100px;
-    }
-    .container .menu a {
-        display: inline-block;
-        padding: 15px;
-        line-height: normal;
-        text-decoration: none;
-        color: #fff;
-        transition: all 0.3s ease;
-        border-bottom: 2px solid transparent;
-        font-size: 15px;
-        margin-right: 5px;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-    }
-    .container .menu a:hover {
-        border-bottom: 2px solid #c7c7c7;
-        padding-bottom: 5px;
-    }
-    /*Fin de Estilos para el encabezado*/
-    /*Menù lateral*/
-    #btn-menu {
-        display: none;
-    }
-    .container-menu {
-        position: absolute;
-        background: rgba(0, 0, 0, 0.5);
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        transition: all 500ms ease;
-        opacity: 0;
-        visibility: hidden;
-        -webkit-transition: all 500ms ease;
-        -moz-transition: all 500ms ease;
-        -ms-transition: all 500ms ease;
-        -o-transition: all 500ms ease;
-    }
-    #btn-menu:checked~.container-menu {
-        opacity: 1;
-        visibility: visible;
-    }
-    .cont-menu {
-        width: 100%;
-        z-index: 100;
-        max-width: 250px;
-        background: #1c1c1c;
-        position: fixed;
-        height: 100vh;
-        position: relative;
-        transition: all 500ms ease;
-        transform: translateX(-100%);
-        position: fixed;
-        -webkit-transition: all 500ms ease;
-        -moz-transition: all 500ms ease;
-        -ms-transition: all 500ms ease;
-        -o-transition: all 500ms ease;
-        -webkit-transform: translateX(-100%);
-        -moz-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-        -o-transform: translateX(-100%);
-    }
-    #btn-menu:checked~.container-menu .cont-menu {
-        transform: translateX(0%);
-    }
-    .cont-menu nav {
-        transform: translateY(15%);
-    }
-    .cont-menu nav a {
-        display: block;
-        text-decoration: none;
-        padding: 20px;
-        color: #c7c7c7;
-        border-left: 5px solid transparent;
-        transition: all 400ms ease;
-    }
-    .cont-menu nav a:hover {
-        transform: scale(1.15);
-        -webkit-transform: scale(1.15);
-        -moz-transform: scale(1.15);
-        -ms-transform: scale(1.15);
-        -o-transform: scale(1.15);
-    }
-    .cont-menu label {
-        position: absolute;
-        right: 5px;
-        top: 10px;
-        color: #fff;
-        cursor: pointer;
-        font-size: 18px;
-    }
-    .pie-pagina .grupo-1 {
-        width: 90%;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 30px;
-        padding: 35px 0px;
-    }
-}
+/*Mobil S*/
 
-
-/*
-320px — 480px: Mobile devices
-481px — 768px: iPads, Tablets
-769px — 1024px: Small screens, laptops
-1025px — 1200px: Desktops, large screens
-1201px and more —  Extra large screens, TV
-*/
-
-
-/* DISEÑO MOBILE */
-
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 320px) and (max-width: 374px) {
     .capa {
         position: fixed;
         width: 100%;
@@ -734,7 +578,6 @@ a {
     .cont-menu {
         position: fixed;
         width: 100%;
-        max-width: 250px;
         z-index: 100;
         background: #1c1c1c;
         height: 100vh;
@@ -889,7 +732,15 @@ a {
     }
 }
 
-@media screen and (min-width: 480px) {
+/*Mobil M*/
+
+@media only screen and (min-width: 375px) and (max-width: 424px){
+
+}
+
+/*Mobil L*/
+
+@media only screen and (min-width: 425px) and (max-width: 767px) {
     .capa {
         position: fixed;
         width: 100%;
@@ -1029,9 +880,9 @@ a {
 }
 
 
-/* DISEÑO TABLET */
+/*TABLET*/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
     .capa {
         position: fixed;
         width: 100%;
@@ -1235,73 +1086,150 @@ a {
 }
 
 
-/* DISEÑO LAPTOP CHICA */
+/*LAPTOP*/
 
-@media screen and (min-width: 769px) {
-    #menu {
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .capa {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+    /*Estilos para el encabezado*/
+    .header {
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .container {
         width: 90%;
-        /* ATRIBUTOS BORDER DE LA CAJA NAV */
+        max-width: 1200px;
+        margin: auto;
     }
-    #titulo li.titulotxt {
-        font-size: 30px;
-        margin: 120px 0px;
+    .container .btn-menu,
+    .logo {
+        float: left;
+        line-height: 100px;
     }
-    .servicios {
+    .container .btn-menu label {
+        color: #fff;
         font-size: 25px;
+        cursor: pointer;
     }
-    #productos h1 {
-        font-size: 28px;
+    .logo h1 {
+        color: #fff;
+        font-weight: 400;
+        font-size: 22px;
+        margin-left: 10px;
     }
-    #articulo1 {
-        height: 400px;
+    .container .menu {
+        float: right;
+        line-height: 100px;
     }
-    #articulo2 {
-        height: 400px;
+    .container .menu a {
+        display: inline-block;
+        padding: 15px;
+        line-height: normal;
+        text-decoration: none;
+        color: #fff;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid transparent;
+        font-size: 15px;
+        margin-right: 5px;
     }
-    #articulo3 {
-        height: 400px;
+    .container .menu a:hover {
+        border-bottom: 2px solid #c7c7c7;
+        padding-bottom: 5px;
     }
-    #articulo4 {
-        height: 400px;
+    /*Fin de Estilos para el encabezado*/
+    /*Menù lateral*/
+    #btn-menu {
+        display: none;
     }
-    #articulo5 {
-        height: 400px;
+    .container-menu {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        transition: all 500ms ease;
+        opacity: 0;
+        visibility: hidden;
     }
-    #articulo1 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
+    #btn-menu:checked~.container-menu {
+        opacity: 1;
+        visibility: visible;
     }
-    #articulo2 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
+    .cont-menu {
+        width: 100%;
+        max-width: 250px;
+        background: #1c1c1c;
+        z-index: 100;
+        height: 100vh;
+        position: fixed;
+        transition: all 500ms ease;
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        -webkit-transition: all 500ms ease;
+        -moz-transition: all 500ms ease;
+        -ms-transition: all 500ms ease;
+        -o-transition: all 500ms ease;
     }
-    #articulo3 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
+    #btn-menu:checked~.container-menu .cont-menu {
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        -moz-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        -o-transform: translateX(0%);
     }
-    #articulo4 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
+    .cont-menu nav {
+        transform: translateY(15%);
+        -webkit-transform: translateY(15%);
+        -moz-transform: translateY(15%);
+        -ms-transform: translateY(15%);
+        -o-transform: translateY(15%);
     }
-    #articulo5 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
+    .cont-menu nav a {
+        display: block;
+        text-decoration: none;
+        padding: 20px;
+        color: #c7c7c7;
+        border-left: 5px solid transparent;
+        transition: all 400ms ease;
+        -webkit-transition: all 400ms ease;
+        -moz-transition: all 400ms ease;
+        -ms-transition: all 400ms ease;
+        -o-transition: all 400ms ease;
     }
-    div.carousel-caption {
-        bottom: 0.25rem;
+    .cont-menu nav a:hover {
+        transform: scale(1.15);
+        -webkit-transform: scale(1.15);
+        -moz-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        -o-transform: scale(1.15);
     }
-    #caja-ofrecemos {
-        top: -370px;
-        left: 40%;
+    .cont-menu label {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
     }
 }
 
-@media screen and (min-width: 1024px) {
+/*LAPTOP L*/
+
+@media screen and (min-width: 1440px) and (max-width: 2559px) {
     .container {
         margin: auto;
     }
@@ -1350,7 +1278,6 @@ a {
         transform: translateX(-100%);
         z-index: 100;
         height: 80px;
-        max-width: 1550px;
         width: 100%;
         position: fixed;
         -webkit-transition: all 500ms ease;
@@ -1373,7 +1300,7 @@ a {
         transform: translateY(15%);
         font-family: 'Press Start 2P', cursive;
         display: flex;
-        height: 75px;
+        height: 80px;
         border-radius: 100%;
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
@@ -1383,12 +1310,13 @@ a {
         -moz-transform: translateY(15%);
         -ms-transform: translateY(15%);
         -o-transform: translateY(15%);
+        width: 100%;
     }
     .cont-menu nav a {
         display: block;
         text-decoration: none;
         height: 50px;
-        padding: 0 70px;
+        padding: 15px 70px;
         font-size: 15px;
         display: flex;
         color: #c7c7c7;
@@ -1491,9 +1419,7 @@ a {
     .somos {
         position: relative;
     }
-    .servicios {
-        font-size: 24px;
-    }
+
     #caja-ofrecemos {
         top: -500px;
         left: -33%;
@@ -1502,4 +1428,10 @@ a {
         font-size: 25px;
         padding: 0 10px;
     }
+}
+
+/*PANTALLAS GRANDES*/
+
+@media screen and (min-width: 2560px){
+
 }
