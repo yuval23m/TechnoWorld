@@ -23,6 +23,5 @@ class Producto(models.Model):
     marca = models.CharField(max_length=20,null=True, blank=True, verbose_name='Marca')
     tipo = models.ForeignKey(TipoProducto,null=True, on_delete=models.CASCADE)
 
-    def __ini__(self):
+    def __str__(self):
         return self.idpro
-
