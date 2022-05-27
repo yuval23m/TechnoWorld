@@ -88,7 +88,7 @@ DATABASES={
     'default':
     {
     'ENGINE':'django.db.backends.oracle',
-    'NAME':'localhost:1521/xe',
+    'NAME':'localhost:1521/XEPDB1',
     'USER':'TECHNO', 
     'PASSWORD':'1234',#Please provide the db password here
     }
