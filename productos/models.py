@@ -25,4 +25,3 @@ class Producto(models.Model):
 
     def __ini__(self):
         return self.idpro
-

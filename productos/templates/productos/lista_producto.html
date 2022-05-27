@@ -33,6 +33,8 @@
                 <td>{{prod.marca}}</td>
                 <td><a href="{% url 'Modificar' prod.idpro %}">Modificar</a></td>
                 <td><a href="{% url 'Eliminar' prod.idpro %}">Eliminar</a></td>
+                <td><a href="{% url 'lista_prod' %}">API</a></td>
+                <td><a href="{% url 'detalle_prod' prod.idpro %}">Modificar API</a></td>
             </tr>
                 {%endfor%}
             </tbody>
