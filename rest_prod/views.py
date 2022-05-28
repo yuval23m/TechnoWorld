@@ -15,8 +15,7 @@ def lista_prod(request):
         serializer = ProdSerializer(listaprod, many = True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        dataP = JSONParser().parse(request)
-        serializer = ProdSerializer(data=dataP)
+        serializer = ProdSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status= status.HTTP_201_CREATED)
@@ -34,8 +33,7 @@ def detalle_prod(request,ID):
         serializer = ProdSerializer(producto)
         return Response(serializer.data)
     elif request.method == "PUT":
-        dataP = JSONParser().parse(request)
-        serializer = ProdSerializer(producto, data = dataP)
+        serializer = ProdSerializer(producto, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
