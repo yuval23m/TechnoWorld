@@ -18,6 +18,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Imagen</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Marca</th>
                 <th scope="col">Eliminar</th>
@@ -31,6 +32,7 @@
             <tr>
                 <th scope="row">{{prod.idpro}}</th>
                 <td>{{prod.nombre}}</td>
+                <td><img src="{{MEDIA_URL}}{{prod.img}}" class="col-3" alt="Slide 1"></td>
                 <td>{{prod.precio}}</td>
                 <td>{{prod.marca}}</td>
                 <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
