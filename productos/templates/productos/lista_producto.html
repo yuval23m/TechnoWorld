@@ -20,8 +20,8 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Marca</th>
-                <th scope="col">Modificar</th>
                 <th scope="col">Eliminar</th>
+                <th scope="col">Modificar</th>
                 <th scope="col">Api</th>
                 <th scope="col">Modificar Api</th>
             </tr>
@@ -34,7 +34,7 @@
                 <td>{{prod.precio}}</td>
                 <td>{{prod.marca}}</td>
                 <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Modificar
+                    Eliminar
                   </button></td>
                 <!-- Button trigger modal -->
 
@@ -50,19 +50,19 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
+          Confirmar la eliminacion del producto
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           
-          <button type="button" class="btn btn-primary"><a href="{% url 'Modificar' prod.idpro %}">Modificar</a></button>
+          <button type="button" class="btn btn-dark"><a href="{% url 'Eliminar' prod.idpro %}">Eliminar</a></button>
         </div>
       </div>
     </div>
   </div>
-                <td><a href="{% url 'Eliminar' prod.idpro %}">Eliminar</a></td>
-                <td><a href="{% url 'lista_prod' %}">API</a></td>
-                <td><a href="{% url 'detalle_prod' prod.idpro %}">Modificar API</a></td>
+                <td><a class="btn btn-primary" href="{% url 'Modificar' prod.idpro %}">Modificar</a></td>
+                <td><a class="btn btn-primary" href="{% url 'lista_prod' %}">API</a></td>
+                <td><a class="btn btn-primary" href="{% url 'detalle_prod' prod.idpro %}">Modificar API</a></td>
             </tr>
                 {%endfor%}
             </tbody>
