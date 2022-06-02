@@ -36,7 +36,7 @@ def modificar_pro(request, ID):
     }
     
     if(request.method == 'POST'):
-        form = Img(request.POST,request.FILES, instance=producto)
+        form = Img(request.POST, request.FILES, instance=producto)
         if form.is_valid():
             form.save()
             datos['mensaje'] = 'Modificado correctamente'
