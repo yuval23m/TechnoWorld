@@ -9,22 +9,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="row">
         <form action="" method="post" enctype="multipart/form-data" id="formulario">
             {% csrf_token %}
-
-            <div class="form_group">
-                {{form.as_table}}
-
+            <div class="container bg-light rounded p-0 my-2 w-50">
+                <div class="titulo d-flex justify-content-center bg-primary rounded">
+                    <h1 class="text-white">INGRESE TITULO DE EJEMPLO</h1>
+                </div>
+                <div class="formulario d-flex flex-column justify-content-center p-2 gap-3">
+                    {{ form.as_table }}
+                </div>
+                <div class="botones d-flex justify-content-center bg-light rounded gap-3 my-2">
+                    <button type="submit" class = "save btn btn-primary">Modificar</button>
+                    <a class="btn btn-primary" href="{% url 'ListarProducto' %}" role="button">Volver</a>
+                </div>
+                <div id="error" class="alert alert-success" role="alert">
+                    {{ mensaje }}
+                </div>
             </div>
-            <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
-            <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
-            <a class="btn btn-danger" href="{% url 'ListarProducto' %}" role="button">Volver</a>
-            <div id="error" class="alert alert-success" role="alert">
-                {{ mensaje }}
-            </div>
+
             
         </form>
-    </div>
 </body>
 </html>
