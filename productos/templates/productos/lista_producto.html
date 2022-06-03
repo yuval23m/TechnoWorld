@@ -13,68 +13,70 @@
 </head>
 <body>
     <div class="container d-flex flex-column justify-content-center bg-light my-2 rounded p-0 w-50">
-      <div class="titulo d-flex justify-content-center bg-primary rounded">
+      <div class="titulo d-flex justify-content-center bg-primary rounded ">
         <h1 class="text-white">INGRESE TITULO DE EJEMPLO</h1>
       </div>
+      <div class="table-responsive">
         <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Eliminar</th>
-                <th scope="col">Modificar</th>
-                <th scope="col">Api</th>
-                <th scope="col">Modificar Api</th>
-            </tr>
-            </thead>
-            <tbody>
-                {%for prod in productos%}
-            <tr>
-                <th scope="row">{{prod.idpro}}</th>
-                <td>{{prod.nombre}}</td>
-                <td><img src="{{MEDIA_URL}}{{prod.img}}" class="col-3" alt="Slide 1"></td>
-                <td>{{prod.precio}}</td>
-                <td>{{prod.marca}}</td>
-                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Eliminar
-                  </button></td>
-                <!-- Button trigger modal -->
+          <thead>
+          <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Marca</th>
+              <th scope="col">Eliminar</th>
+              <th scope="col">Modificar</th>
+              <th scope="col">Api</th>
+              <th scope="col">Modificar Api</th>
+          </tr>
+          </thead>
+          <tbody>
+              {%for prod in productos%}
+          <tr>
+              <th scope="row">{{prod.idpro}}</th>
+              <td>{{prod.nombre}}</td>
+              <td><img src="{{MEDIA_URL}}{{prod.img}}" class="col-3" alt="Slide 1"></td>
+              <td>{{prod.precio}}</td>
+              <td>{{prod.marca}}</td>
+              <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Eliminar
+                </button></td>
+              <!-- Button trigger modal -->
 
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Confirmar la eliminacion del producto
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          
-          <button type="button" class="btn btn-danger"><a href="{% url 'Eliminar' prod.idpro %}"></a>Eliminar</button>
-        </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Confirmar la eliminacion del producto
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        
+        <button type="button" class="btn btn-danger"><a href="{% url 'Eliminar' prod.idpro %}"></a>Eliminar</button>
       </div>
     </div>
   </div>
-                <td><a class="btn btn-primary" href="{% url 'Modificar' prod.idpro %}">Modificar</a></td>
-                <td><a class="btn btn-primary" href="{% url 'lista_prod' %}">API</a></td>
-                <td><a class="btn btn-primary" href="{% url 'detalle_prod' prod.idpro %}">Modificar API</a></td>
-            </tr>
-                {%endfor%}
-            </tbody>
-            
-            
-        </table>
-        <div class="botones d-flex justify-content-center bg-light rounded gap-3 my-2">
+</div>
+              <td><a class="btn btn-primary" href="{% url 'Modificar' prod.idpro %}">Modificar</a></td>
+              <td><a class="btn btn-primary" href="{% url 'lista_prod' %}">API</a></td>
+              <td><a class="btn btn-primary" href="{% url 'detalle_prod' prod.idpro %}">Modificar API</a></td>
+          </tr>
+              {%endfor%}
+          </tbody>
+          
+          
+      </table>
+      </div>  
+      <div class="botones d-flex justify-content-center bg-light rounded gap-3 my-2">
           <a class="btn btn-primary" href="{% url 'Subir-Foto' %}" role="button">Agregar</a>
           <a class="btn btn-primary" href="{% url 'Inicio' %}" role="button">Volver</a>
       </div>
