@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'productos',
     'rest_prod',
     'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.auth',
     'django.contrib.sites',
     'allauth',
@@ -78,6 +79,12 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
 WSGI_APPLICATION = 'TechnoWorld.wsgi.application'
 
 
@@ -88,7 +95,7 @@ DATABASES={
     'default':
     {
     'ENGINE':'django.db.backends.oracle',
-    'NAME':'localhost:1521/orcl',
+    'NAME':'localhost:1521/XEPDB1',
     'USER':'TECHNO', 
     'PASSWORD':'1234',#Please provide the db password here
     }
