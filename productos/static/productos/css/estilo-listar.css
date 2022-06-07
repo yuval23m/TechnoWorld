@@ -1,12 +1,3 @@
 .botones {
     font-size: 30px;
 }
-::-webkit-scrollbar{
-    width: 20%;
-}
-::-webkit-scrollbar-track{
-    background: #dddddd;
-}
-::-webkit-scrollbar-thumb{
-    background: #0d6efd;
-}
