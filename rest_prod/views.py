@@ -9,6 +9,7 @@ from rest_prod.serializers import ProdSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
+
 @csrf_exempt
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))

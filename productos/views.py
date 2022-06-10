@@ -81,3 +81,5 @@ def quienes(request):
 
 def version(request):
     return render(request, 'productos/version_pro.html')
+def registroapi(request):
+    return render(request, 'productos/registroapi.html')
