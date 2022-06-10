@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_prod',
     'rest_framework',
     'rest_framework.authtoken',
+    'knox',
+    'knoxapp',
     'django.contrib.auth',
     'django.contrib.sites',
     'allauth',
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,8 +84,14 @@ TEMPLATES = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
     ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
 }
 
 WSGI_APPLICATION = 'TechnoWorld.wsgi.application'
@@ -95,7 +104,7 @@ DATABASES={
     'default':
     {
     'ENGINE':'django.db.backends.oracle',
-    'NAME':'localhost:1521/XEPDB1',
+    'NAME':'localhost:1521/orcl',
     'USER':'TECHNO', 
     'PASSWORD':'1234',#Please provide the db password here
     }
