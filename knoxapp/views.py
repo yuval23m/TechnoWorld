@@ -26,12 +26,18 @@ class RegisterAPIPOST(generics.GenericAPIView):
     serializer_class = RegisterSerializer
     def post(self, request, *args, **kwargs):
             serializer = self.get_serializer(data=request.data)
-            serializer.is_valid(raise_exception=True)
-            user = serializer.save()
-            return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": AuthToken.objects.create(user)[1]
-            })
+            if serializer.is_valid():
+                user = serializer.save()
+                return Response({
+                "user": UserSerializer(user, context=self.get_serializer_context()).data,
+                "token": AuthToken.objects.create(user)[1],
+                "mensaje": "Registrado Correctamente"
+                })
+            else:
+                return Response({
+                "mensaje": "Registrado Incorrectamente"
+                })
+            
     
         
 
@@ -51,7 +57,12 @@ class LoginAPIPOST(KnoxLoginView):
     template_name = 'mensaje.html'
     def post(self, request, format=None):
         serializer = AuthTokenSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        login(request, user)
-        return super(LoginAPIPOST, self).post(request, format=None)       
+        if serializer.is_valid():
+            user = serializer.validated_data['user']
+            login(request, user)
+            temp_list = super(LoginAPIPOST, self).post(request, format=None)
+            return Response({"data":temp_list.data,"mensaje": "Logeado Correctamente"})
+        else:
+            return Response({
+            "mensaje": "Logeado Incorrectamente"
+            })

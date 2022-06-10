@@ -1,7 +1,5 @@
 {% load rest_framework %}
 
-...
-
 <form target="" class="form-horizontal" action="{% url 'login-valida' %}" method="post" novalidate>
     {% csrf_token %}
     {% render_form serializer %}
@@ -15,7 +13,7 @@
     </div>
     
 </form>
-<form target="_blank" class="form-horizontal" action="{% url 'account_logout' %}" method="post" novalidate>
+<form target="" class="form-horizontal" action="{% url 'logoutknox' %}" method="post" novalidate>
     {% csrf_token %}
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
