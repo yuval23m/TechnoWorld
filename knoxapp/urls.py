@@ -6,8 +6,8 @@ from knox import views as knox_views
 
 
 urlpatterns = [
-    path('register-form', RegisterAPIGET.as_view(), name='register'),
-    path('valida-register', RegisterAPIPOST.as_view(), name='validaregister'),
+    path('register-form/', RegisterAPIGET.as_view(), name='register'),
+    path('valida-register/', RegisterAPIPOST.as_view(), name='validaregister'),
     path('login-form/', LoginAPIGET.as_view(), name='login'),
     path('valida-form/', LoginAPIPOST.as_view(), name='login-valida'),
      path('logout/', knox_views.LogoutView.as_view(), name='logoutknox'),
