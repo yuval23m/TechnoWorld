@@ -4,9 +4,12 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer,LoginSerializer
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
+from knox.auth import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 # Register API
 class RegisterAPIGET(generics.GenericAPIView):
     queryset = User.objects.all()
@@ -26,12 +29,18 @@ class RegisterAPIPOST(generics.GenericAPIView):
     serializer_class = RegisterSerializer
     def post(self, request, *args, **kwargs):
             serializer = self.get_serializer(data=request.data)
-            serializer.is_valid(raise_exception=True)
-            user = serializer.save()
-            return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": AuthToken.objects.create(user)[1]
-            })
+            if serializer.is_valid():
+                user = serializer.save()
+                return Response({
+                "user": UserSerializer(user, context=self.get_serializer_context()).data,
+                #"token": AuthToken.objects.create(user)[1],
+                "mensaje": "Registrado Correctamente"
+                })
+            else:
+                return Response({
+                "mensaje": "Registrado Incorrectamente"
+                })
+            
     
         
 
@@ -45,13 +54,32 @@ class LoginAPIGET(generics.GenericAPIView):
 
         serializer = LoginSerializer()
         return Response({'serializer': serializer})
+    
 class LoginAPIPOST(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'mensaje.html'
     def post(self, request, format=None):
         serializer = AuthTokenSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        login(request, user)
-        return super(LoginAPIPOST, self).post(request, format=None)       
+        if serializer.is_valid():
+            user = serializer.validated_data['user']
+            login(request, user)
+            token = AuthToken.objects.create(user)[1]
+            return Response({"data":token,"mensaje": "Logeado Correctamente"})
+        else:
+            return Response({
+            "mensaje": "Logeado Incorrectamente"
+            })
+            
+class LogoutView(generics.GenericAPIView):
+
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'mensaje.html'
+    
+    def post(self, request, format=None):
+        borrar = AuthToken.objects.get(user=request.user)
+        borrar.delete()
+        logout(request)
+        return Response({
+            "mensaje": "Desconectado de sesion"
+            })
