@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'knox',
     'knoxapp',
-    'knoxauth',
     'django.contrib.auth',
     'django.contrib.sites',
     'allauth',

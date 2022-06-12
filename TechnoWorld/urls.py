@@ -25,7 +25,6 @@ urlpatterns = [
     path('API/', include('rest_prod.urls')),
     path('api-token-auth/', views.obtain_auth_token),
     path('knox/', include('knoxapp.urls')),
-    path('simpleknox/', include('knoxauth.urls')),
 ]
 if settings.DEBUG:  
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
