@@ -18,7 +18,7 @@ class RegisterAPIGET(generics.GenericAPIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'formulario.html'
     
-    def get(self, request, format=None):
+    def get(self, request):
 
         serializer = RegisterSerializer()
         return Response({'serializer': serializer})
@@ -28,7 +28,7 @@ class RegisterAPIPOST(generics.GenericAPIView):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'mensaje.html'
     serializer_class = RegisterSerializer
-    def post(self, request, *args, **kwargs):
+    def post(self, request, format=None):
             serializer = self.get_serializer(data=request.data)
             if serializer.is_valid():
                 user = serializer.save()
@@ -42,17 +42,20 @@ class RegisterAPIPOST(generics.GenericAPIView):
                 holax = json.loads(hola)
                 username = holax['username'][-1]
                 password = holax['password'][-1]
+
                 
                 
                 return Response({
                 "username": username,
-                "password": password
+                "password": password,
+
                 })
             
     
         
 
 class LoginAPIGET(generics.GenericAPIView):
+    permission_classes = (permissions.AllowAny,)
     serializer_class = LoginSerializer
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'login.html'
@@ -63,6 +66,7 @@ class LoginAPIGET(generics.GenericAPIView):
         return Response({'serializer': serializer})
     
 class LoginAPIPOST(KnoxLoginView):
+    permission_classes = (permissions.AllowAny,)
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'mensaje.html'
     def post(self, request, format=None):
@@ -94,8 +98,13 @@ class LogoutView(generics.GenericAPIView):
             borrar = AuthToken.objects.get(user=request.user)
             borrar.delete()
         except AuthToken.DoesNotExist:
-            logout(request)
+            
             return Response({
+            "mensaje": "Error de Token"
+            })
+        logout(request)
+        return Response({
             "mensaje": "Desconectado de sesion"
             })
+        
         

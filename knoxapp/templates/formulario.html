@@ -1,11 +1,11 @@
 {% load rest_framework %}
 
-<form target="" class="form-horizontal" action="{% url 'validaregister' %}" method="post" novalidate>
+<form target="" class="form-horizontal" action="{% url 'validaregister' %}" method="post" validate>
     {% csrf_token %}
     {% render_form serializer %}
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <input onclick="window.location.href = '/';" type="submit" value="Registrarse" />
+            <input  type="submit" value="Registrarse" />
         </div>
     </div>
     <div id="error" class="alert alert-success" role="alert">
