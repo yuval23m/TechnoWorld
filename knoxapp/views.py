@@ -56,7 +56,6 @@ class LoginAPIGET(generics.GenericAPIView):
         return Response({'serializer': serializer})
     
 class LoginAPIPOST(KnoxLoginView):
-    permission_classes = (permissions.AllowAny,)
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'mensaje.html'
     def post(self, request, format=None):
@@ -72,13 +71,13 @@ class LoginAPIPOST(KnoxLoginView):
             })
             
 class LogoutView(generics.GenericAPIView):
-
+    permission_classes = (IsAuthenticated,)
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'mensaje.html'
     
     def post(self, request, format=None):
-        borrar = AuthToken.objects.get(user=request.user)
-        borrar.delete()
+        #borrar = AuthToken.objects.get(user=request.user)
+        #borrar.delete()
         logout(request)
         return Response({
             "mensaje": "Desconectado de sesion"
