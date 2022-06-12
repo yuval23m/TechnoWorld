@@ -90,9 +90,12 @@ class LogoutView(generics.GenericAPIView):
     template_name = 'mensaje.html'
     
     def post(self, request, format=None):
-        #borrar = AuthToken.objects.get(user=request.user)
-        #borrar.delete()
-        logout(request)
-        return Response({
+        try:
+            borrar = AuthToken.objects.get(user=request.user)
+            borrar.delete()
+        except AuthToken.DoesNotExist:
+            logout(request)
+            return Response({
             "mensaje": "Desconectado de sesion"
             })
+        
