@@ -6,7 +6,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer,LoginSerializer
 from django.contrib.auth import login,logout
-from rest_framework.authtoken.serializers import AuthTokenSerializer
+from knoxapp.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
 from knox.auth import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -29,7 +29,7 @@ class RegisterAPIPOST(generics.GenericAPIView):
     template_name = 'mensaje.html'
     serializer_class = RegisterSerializer
     def post(self, request, format=None):
-            serializer = self.get_serializer(data=request.data)
+            serializer = RegisterSerializer(data=request.data)
             if serializer.is_valid():
                 user = serializer.save()
                 return Response({
@@ -40,15 +40,16 @@ class RegisterAPIPOST(generics.GenericAPIView):
             else:
                 hola = json.dumps(serializer.errors)
                 holax = json.loads(hola)
-                username = holax['username'][-1]
-                password = holax['password'][-1]
-
+                #username = holax['username'][-1]
+                #email = holax['email'][-1]
+                #password = holax['password'][-1]
                 
                 
                 return Response({
-                "username": username,
-                "password": password,
-
+                #"username": username,
+                #"email": email,
+                #"password": password,
+                "mensaje":serializer.errors
                 })
             
     
@@ -68,6 +69,7 @@ class LoginAPIGET(generics.GenericAPIView):
 class LoginAPIPOST(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)
     renderer_classes = [TemplateHTMLRenderer]
+    
     template_name = 'mensaje.html'
     def post(self, request, format=None):
         serializer = AuthTokenSerializer(data=request.data)
@@ -79,13 +81,14 @@ class LoginAPIPOST(KnoxLoginView):
         else:
                 hola = json.dumps(serializer.errors)
                 holax = json.loads(hola)
-                username = holax['username'][-1]
-                password = holax['password'][-1]
+                #email = holax['email'][-1]
+                #password = holax['password'][-1]
                 
                 
                 return Response({
-                "username": username,
-                "password": password
+                #"email": email,
+                #"password": password,
+                "mensaje":serializer.errors
                 })
             
 class LogoutView(generics.GenericAPIView):
@@ -98,7 +101,6 @@ class LogoutView(generics.GenericAPIView):
             borrar = AuthToken.objects.get(user=request.user)
             borrar.delete()
         except AuthToken.DoesNotExist:
-            
             return Response({
             "mensaje": "Error de Token"
             })
