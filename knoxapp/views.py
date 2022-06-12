@@ -1,3 +1,4 @@
+import json
 from rest_framework import generics, permissions
 from django.contrib.auth.models import User
 from rest_framework.response import Response
@@ -37,15 +38,21 @@ class RegisterAPIPOST(generics.GenericAPIView):
                 "mensaje": "Registrado Correctamente"
                 })
             else:
+                hola = json.dumps(serializer.errors)
+                holax = json.loads(hola)
+                username = holax['username'][-1]
+                password = holax['password'][-1]
+                
+                
                 return Response({
-                "mensaje": "Registrado Incorrectamente"
+                "username": username,
+                "password": password
                 })
             
     
         
 
 class LoginAPIGET(generics.GenericAPIView):
-    queryset = User.objects.all()
     serializer_class = LoginSerializer
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'login.html'
@@ -66,9 +73,16 @@ class LoginAPIPOST(KnoxLoginView):
             token = AuthToken.objects.create(user)[1]
             return Response({"data":token,"mensaje": "Logeado Correctamente"})
         else:
-            return Response({
-            "mensaje": "Logeado Incorrectamente"
-            })
+                hola = json.dumps(serializer.errors)
+                holax = json.loads(hola)
+                username = holax['username'][-1]
+                password = holax['password'][-1]
+                
+                
+                return Response({
+                "username": username,
+                "password": password
+                })
             
 class LogoutView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
