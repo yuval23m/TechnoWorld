@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'CarritoApp',
 ]
 
 
@@ -76,7 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media', 
+                'django.template.context_processors.media',
+                'CarritoApp.context_processor.total_carrito', 
             ],
         },
     },
@@ -105,7 +107,7 @@ DATABASES={
     'default':
     {
     'ENGINE':'django.db.backends.oracle',
-    'NAME':'localhost:1521/orcl',
+    'NAME':'localhost:1521/xe',
     'USER':'TECHNO', 
     'PASSWORD':'1234',#Please provide the db password here
     }
