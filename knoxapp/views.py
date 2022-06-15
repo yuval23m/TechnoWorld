@@ -10,6 +10,7 @@ from knoxapp.serializers import AuthTokenSerializer
 from knox.views import LoginView as KnoxLoginView
 from knox.auth import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from django.shortcuts import render, redirect
 
 # Register API
 class RegisterAPIGET(generics.GenericAPIView):
@@ -26,7 +27,7 @@ class RegisterAPIGET(generics.GenericAPIView):
 # Register API
 class RegisterAPIPOST(generics.GenericAPIView):
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'mensaje.html'
+    template_name = 'mensaje_register.html'
     serializer_class = RegisterSerializer
     def post(self, request, format=None):
             serializer = RegisterSerializer(data=request.data)
@@ -40,17 +41,7 @@ class RegisterAPIPOST(generics.GenericAPIView):
             else:
                 hola = json.dumps(serializer.errors)
                 holax = json.loads(hola)
-                #username = holax['username'][-1]
-                #email = holax['email'][-1]
-                #password = holax['password'][-1]
-                
-                
-                return Response({
-                #"username": username,
-                #"email": email,
-                #"password": password,
-                "mensaje":serializer.errors
-                })
+                return Response({"mensaje": holax})
             
     
         
@@ -69,8 +60,9 @@ class LoginAPIGET(generics.GenericAPIView):
 class LoginAPIPOST(KnoxLoginView):
     permission_classes = (permissions.AllowAny,)
     renderer_classes = [TemplateHTMLRenderer]
-    
+    serializer_class = LoginSerializer
     template_name = 'mensaje.html'
+    
     def post(self, request, format=None):
         serializer = AuthTokenSerializer(data=request.data)
         if serializer.is_valid():
@@ -79,34 +71,23 @@ class LoginAPIPOST(KnoxLoginView):
             token = AuthToken.objects.create(user)[1]
             return Response({"data":token,"mensaje": "Logeado Correctamente"})
         else:
-                hola = json.dumps(serializer.errors)
-                holax = json.loads(hola)
-                #email = holax['email'][-1]
-                #password = holax['password'][-1]
-                
-                
-                return Response({
-                #"email": email,
-                #"password": password,
-                "mensaje":serializer.errors
-                })
-            
+            hola = json.dumps(serializer.errors)
+            holax = json.loads(hola)
+            return Response({"mensaje": holax})
+        
 class LogoutView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'mensaje.html'
     
-    def post(self, request, format=None):
+    def get(self, request, format=None):
         try:
             borrar = AuthToken.objects.get(user=request.user)
             borrar.delete()
         except AuthToken.DoesNotExist:
-            return Response({
-            "mensaje": "Error de Token"
-            })
+            return redirect('Inicio')
+            
         logout(request)
-        return Response({
-            "mensaje": "Desconectado de sesion"
-            })
+        return redirect('Inicio')
         
         

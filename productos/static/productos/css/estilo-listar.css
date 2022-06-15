@@ -1,3 +1,8 @@
 .botones {
     font-size: 30px;
 }
+
+body{
+    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0)), url(../image/bg4.jpg);
+
+}
