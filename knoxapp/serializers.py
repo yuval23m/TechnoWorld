@@ -23,10 +23,10 @@ class AuthTokenSerializer(serializers.Serializer):
                     msg = _('User account is disabled.')
                     raise serializers.ValidationError(msg)
             else:
-                msg = _('Unable to log in with provided credentials.')
+                msg = ('Unable to log in with provided credentials.')
                 raise serializers.ValidationError(msg)
         else:
-            msg = _('Must include "email" and "password".')
+            msg = ('Must include "email" and "password".')
             raise serializers.ValidationError(msg)
 
         data['user'] = user
@@ -38,11 +38,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'email')
 class LoginSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(style={'input_type': 'password'})
     class Meta:
         model = User
         fields = ('email','password')
         extra_kwargs = {'password': {'write_only': True,'required':True},
-                        #'username': {'help_text': None,'required':True},
                         'email':{'required':True,'help_text':None}}
 
 
@@ -54,9 +54,10 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('username','email','password')
-        #extra_kwargs = {'password': {'write_only': True,'required':False},
-        #                'username': {'help_text': None,'required':False},
-        #                'email':{'required':False}}
+        extra_kwargs = {'password': {'write_only': True,'required':True},
+                        'email': {'required':True, 'help_text':None},
+                        'username': {'required':True, 'help_text':None}}
+        
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'],validated_data['email'], validated_data['password'])
 

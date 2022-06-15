@@ -1,15 +1,54 @@
+{% load rest_framework %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" integrity="sha384-eoTu3+HydHRBIjnCVwsFyCpUDZHZSFKEJD0mc3ZqSBSb6YhZzRHeiomAUWCstIWo" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <title>Login</title>
+</head>
+<body>
 
-{%load rest_framework%}
-{%load rest_framework%}
+<div class="container w-25 justify-content-center p-3">
+    <div class="titulo d-flex justify-content-center bg-primary rounded-end rounded-start">
+        <h1 class="text-white">Login</h1>
+      </div>
+    <div class="form-control">
+        <div class="container d-grid gap-2">
+            <h5>Email: {{mensaje.email}}<h5>
+            <h5>Password: {{mensaje.password}}<h5>
+            <h5>{{mensaje.non_field_errors}}<h5>
+            {% if request.user.is_authenticated %}
+                <meta http-equiv="REFRESH" content="5;url={% url 'Inicio' %}">
+                <h5>Ya estas logeado en 5 segundos serás redireccionado al sitio principal<h5>
+            {% endif %}
+            
 
-Username :{{username}}
-<br>
-Email :{{email}}
-<br>
-Password :{{ password }}
-<br>
-Mensaje Error JSON :{{mensaje}}
-<br>
-Respuesta Serializer: {{user}}
-
-
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="d-flex justify-content-center text-center p-2 gap-3">
+            <a class="btn btn-primary" href="{% url 'login' %}" role="button"><i class="bi bi-box-arrow-left"> Login</i></a>
+            <i class="bi bi-arrow-left-right p-2"></i>
+            <a class="btn btn-primary" href="{% provider_login_url 'google' %}" role="button"><i class="bi bi-google"> Google</i></a>
+        </div>
+    </div>
+      
+</div>
+<script>
+    setInterval(function() {
+        var div = document.querySelector("#counter");
+        var count = div.textContent * 1 - 1;
+        div.textContent = count;
+        if (count <= 0) {
+            window.location.replace("https://example.com");
+        }
+    }, 1000);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
