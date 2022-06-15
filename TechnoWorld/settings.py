@@ -105,13 +105,10 @@ WSGI_APPLICATION = 'TechnoWorld.wsgi.application'
 #Redirect Google Login
 SOCIALACCOUNT_LOGIN_ON_GET=True
 LOGOUT_REDIRECT_URL = "/"
-DATABASES={
-    'default':
-    {
-    'ENGINE':'django.db.backends.oracle',
-    'NAME':'localhost:1521/orcl',
-    'USER':'TECHNO', 
-    'PASSWORD':'1234',#Please provide the db password here
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
