@@ -108,10 +108,8 @@ LOGOUT_REDIRECT_URL = "/"
 DATABASES={
     'default':
     {
-    'ENGINE':'django.db.backends.oracle',
-    'NAME':'localhost:1521/orcl',
-    'USER':'TECHNO', 
-    'PASSWORD':'1234',#Please provide the db password here
+    'ENGINE':'django.db.backends.sqlite3',
+    'NAME':'basecero',
     }
 }
 
