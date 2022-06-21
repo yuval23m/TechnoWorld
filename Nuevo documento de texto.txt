@@ -4,6 +4,24 @@ pip install django-rest-framework
 pip install django-rest-knox
 pip install Pillow
 pip install cx_oracle
-pip install django-shopping-cart
-pip install django-extensions
-pip install django-easycart
+
+BASE DE DATOS SQLITE(POR SI ORACLE NO FUNCIONA)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}
+
+BASE DE DATOS ORACLE
+
+DATABASES={
+    'default':
+    {
+    'ENGINE':'django.db.backends.sql',
+    'NAME':'localhost:1521/orcl',
+    'USER':'TECHNO', 
+    'PASSWORD':'1234',#Please provide the db password here
+    }
+}

@@ -105,11 +105,18 @@ WSGI_APPLICATION = 'TechnoWorld.wsgi.application'
 #Redirect Google Login
 SOCIALACCOUNT_LOGIN_ON_GET=True
 LOGOUT_REDIRECT_URL = "/"
+<<<<<<< HEAD
 DATABASES={
     'default':
     {
     'ENGINE':'django.db.backends.sqlite3',
     'NAME':'basecero',
+=======
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+>>>>>>> ea6d75043690c82e5ebe27d45cb46725ee792e9b
     }
 }
 
