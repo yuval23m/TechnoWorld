@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Producto con IMG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'productos/css/estilo-simg.css'%}">
+</head>
+<body>
+    <form method = "post" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container bg-light rounded p-0 my-2 w-50">
+            <div class="titulo d-flex justify-content-center bg-primary rounded">
+                <h1 class="text-white">INGRESE TITULO DE EJEMPLO</h1>
+            </div>
+            <div class="formulario d-flex flex-column justify-content-center p-2 gap-3">
+                {% render_form serializer %}
+            </div>
+            
+            <div class="botones d-flex justify-content-center bg-light rounded gap-3 my-2">
+                <button type="submit" class = "save btn btn-primary">Subir</button>
+                <button type="reset" class = "btn btn-secondary">Reset</button>
+                <a class="btn btn-primary" href="{% url 'ListarProducto' %}" role="button">Volver</a>
+            </div>
+        </div>
+        
+        
+        
+    </form>
+</body>
+
+</html>
