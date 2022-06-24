@@ -38,18 +38,15 @@
                 <td>{{prod.precio}}</td>
                 <td>{{prod.marca}}</td>
                 <td>{{prod.cantidad}}</td>
-                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalForm">
+                <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalForm{{prod.idpro}}">
                     Agregar
                   </button></td>
                   
             </tr>
-                {%endfor%}
+                
             </tbody>
-            
-            
-        </table>
-        {%for prod in productos%}
-          <div class="modal fade" id="ModalForm" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
+
+            <div class="modal fade" id="ModalForm{{prod.idpro}}" tabindex="-1" aria-labelledby="ModalFormLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-body">
@@ -74,6 +71,10 @@
               </div>
           </div>
           {%endfor%}
+        </table>
+
+          
+
           <a class="btn btn-primary" href="{% url 'lista_carro' %}" role="button">Ir al Carrito</a>
             <div id="error" class="container d-flex alert alert-success" role="alert">
                 {{ mensaje }}

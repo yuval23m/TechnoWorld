@@ -6,14 +6,12 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import TemplateHTMLRenderer,JSONRenderer
 from django.views.decorators.csrf import csrf_exempt
-from productos.models import Producto
-from rest_prod.serializers import ProdSerializer
+from productos.models import Producto,CartItem
+from rest_prod.serializers import ProdSerializer,CartItemAddSerializer,CartItemSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
-<<<<<<< Updated upstream
-=======
 @api_view(['POST'])
 #@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
@@ -108,7 +106,6 @@ def lista_carro(request):
         data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username+ " a tu carrito de compras"}
         return Response(data, template_name='carrito_user.html')
     
->>>>>>> Stashed changes
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
