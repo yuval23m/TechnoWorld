@@ -26,6 +26,7 @@ urlpatterns = [
     path('api-token-auth/', views.obtain_auth_token),
     path('knox/', include('knoxapp.urls')),
     path('carrito/', include('CarritoApp.urls')),
+
 ]
 if settings.DEBUG:  
         urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
