@@ -6,14 +6,29 @@ from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import TemplateHTMLRenderer,JSONRenderer
 from django.views.decorators.csrf import csrf_exempt
-from productos.models import Producto,CartItem
-from rest_prod.serializers import ProdSerializer,CartItemAddSerializer,CartItemSerializer
+from productos.models import Producto
+from rest_prod.serializers import ProdSerializer
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
+<<<<<<< Updated upstream
+=======
+@api_view(['POST'])
+#@permission_classes((IsAuthenticated,))
+@renderer_classes([TemplateHTMLRenderer])
+def lista_productosID(request, ID):
+    queryset2 = Producto.objects.all()
+    if request.method == 'POST':
+        serializer = CartItemAddSerializer(data=request.data, context={'request': request,'producto_id':ID})
+        if serializer.is_valid():
+            serializer.save()
+            data = {'serializer': serializer,'productos':queryset2,'mensaje':"Agregado al Carrito Correctamente"}
+            return Response(data,template_name='elcarritos.html' )
+        else:
+            return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST,template_name='elcarritosID.html' )
 
-@api_view(['GET','POST'])
+@api_view(['GET'])
 #@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productos(request):
@@ -22,15 +37,6 @@ def lista_productos(request):
         serializer = CartItemAddSerializer()
         data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username}
         return Response(data, template_name='elcarritos.html')
-    elif request.method == 'POST':
-        serializer = CartItemAddSerializer(data=request.data, context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
-            data = {'serializer': serializer,'productos':queryset2,'mensaje':"Agregado al Carrito Correctamente"}
-            return Response(data,template_name='elcarritos.html' )
-        else:
-            return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST,template_name='elcarritos.html' )
-
 @api_view(['GET'])
 #@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
@@ -102,6 +108,7 @@ def lista_carro(request):
         data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username+ " a tu carrito de compras"}
         return Response(data, template_name='carrito_user.html')
     
+>>>>>>> Stashed changes
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
