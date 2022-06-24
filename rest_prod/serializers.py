@@ -1,12 +1,13 @@
 from rest_framework import serializers
-from productos.models import Producto
+from productos.models import Producto, CartItem
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+from rest_framework.fields import CurrentUserDefault
+
 
 class ProdSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
-<<<<<<< Updated upstream
-        fields = ['nombre','precio','img','marca','tipo']
-=======
         fields = ['idpro','nombre','precio','img','marca','tipo','cantidad','is_available']
 class CartItemSerializer(serializers.ModelSerializer):
 
@@ -44,4 +45,3 @@ class CartItemAddSerializer(serializers.ModelSerializer):
         producto.cantidad = producto.cantidad - cart_item.cantidad
         producto.save()
         return cart_item
->>>>>>> Stashed changes
