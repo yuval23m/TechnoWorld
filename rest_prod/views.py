@@ -12,6 +12,103 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
+<<<<<<< Updated upstream
+=======
+@api_view(['POST'])
+#@permission_classes((IsAuthenticated,))
+@renderer_classes([TemplateHTMLRenderer])
+def lista_productosID(request, ID):
+    queryset2 = Producto.objects.all()
+    if request.method == 'POST':
+        serializer = CartItemAddSerializer(data=request.data, context={'request': request,'producto_id':ID})
+        if serializer.is_valid():
+            serializer.save()
+            data = {'serializer': serializer,'productos':queryset2,'mensaje':"Agregado al Carrito Correctamente"}
+            return Response(data,template_name='elcarritos.html' )
+        else:
+            return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST,template_name='elcarritosID.html' )
+
+@api_view(['GET'])
+#@permission_classes((IsAuthenticated,))
+@renderer_classes([TemplateHTMLRenderer])
+def lista_productos(request):
+    queryset2 = Producto.objects.all()
+    if request.method == 'GET':
+        serializer = CartItemAddSerializer()
+        data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username}
+        return Response(data, template_name='elcarritos.html')
+@api_view(['GET'])
+#@permission_classes((IsAuthenticated,))
+@renderer_classes([TemplateHTMLRenderer])
+def lista_carro_prod_reduce(request,ID):
+    queryset = CartItem.objects.all()
+    if request.method == 'GET':
+        user = request.user
+        cart_item = CartItem.objects.filter(user=user)
+        target_producto = cart_item.get(producto_id=ID)
+        producto = get_object_or_404(Producto, idpro=target_producto.producto.idpro)
+        if target_producto.cantidad == 0:
+            data = {'productos':queryset,'mensaje':"No se puede quitar mas productos"}
+            return Response(data,template_name='carrito_user.html')
+
+        target_producto.cantidad = target_producto.cantidad - 1
+        producto.cantidad = producto.cantidad + 1
+        producto.save()
+        target_producto.save()
+        data = {'productos':queryset,'mensaje':"Un Producto eliminado del carrito"}
+        return Response(data,template_name='carrito_user.html')
+@api_view(['GET'])
+#@permission_classes((IsAuthenticated,))
+@renderer_classes([TemplateHTMLRenderer])
+def lista_carro_prod_del(request,ID):
+    queryset = CartItem.objects.all()
+    if request.method == 'GET':
+        user = request.user
+        cart_item = CartItem.objects.filter(user=user)
+        target_producto = get_object_or_404(cart_item, producto_id=ID)
+        producto = get_object_or_404(Producto, idpro=target_producto.producto.idpro)
+        producto.cantidad = producto.cantidad + target_producto.cantidad
+        producto.save()
+        target_producto.delete()
+        data = {'productos':queryset,'mensaje':"Carrito Limpiado"}
+        return Response(data,template_name='carrito_user.html')
+        
+    
+@api_view(['GET'])
+#@permission_classes((IsAuthenticated,))
+@renderer_classes([TemplateHTMLRenderer])
+def lista_carro_prod_add(request,ID):
+    queryset = CartItem.objects.all()
+    if request.method == 'GET':
+        user = request.user
+        cart_item = CartItem.objects.filter(user=user)
+        target_producto = cart_item.get(producto_id=ID)
+        producto = get_object_or_404(Producto, idpro=target_producto.producto.idpro)
+        if producto.cantidad <= 0:
+            data = {'productos':queryset,'mensaje':"El producto que intentas agregar ya esta vendido"}
+            return Response(data,template_name='carrito_user.html')
+
+        target_producto.cantidad = target_producto.cantidad + 1
+        producto.cantidad = producto.cantidad - 1
+        producto.save()
+        target_producto.save()
+        data = {'productos':queryset,'mensaje':"Un Producto añadido al carrito"}
+        return Response(data,template_name='carrito_user.html')
+
+
+
+
+@api_view(['GET','POST'])
+#@permission_classes((IsAuthenticated,))
+@renderer_classes([JSONRenderer,TemplateHTMLRenderer])
+def lista_carro(request):
+    queryset2 = CartItem.objects.filter(user=request.user)
+    if request.method == 'GET':
+        serializer = CartItemAddSerializer()
+        data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username+ " a tu carrito de compras"}
+        return Response(data, template_name='carrito_user.html')
+    
+>>>>>>> Stashed changes
 @api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
