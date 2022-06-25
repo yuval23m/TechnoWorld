@@ -13,7 +13,7 @@ from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
 @api_view(['POST'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productosID(request, ID):
     queryset2 = Producto.objects.all()
@@ -27,7 +27,7 @@ def lista_productosID(request, ID):
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST,template_name='elcarritosID.html' )
 
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productos(request):
     queryset2 = Producto.objects.all()
@@ -36,7 +36,7 @@ def lista_productos(request):
         data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username}
         return Response(data, template_name='elcarritos.html')
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_carro_prod_reduce(request,ID):
     queryset = CartItem.objects.all()
@@ -56,7 +56,7 @@ def lista_carro_prod_reduce(request,ID):
         data = {'productos':queryset,'mensaje':"Un Producto eliminado del carrito"}
         return Response(data,template_name='carrito_user.html')
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_carro_prod_del(request,ID):
     queryset = CartItem.objects.all()
@@ -73,7 +73,7 @@ def lista_carro_prod_del(request,ID):
         
     
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_carro_prod_add(request,ID):
     queryset = CartItem.objects.all()
@@ -97,7 +97,7 @@ def lista_carro_prod_add(request,ID):
 
 
 @api_view(['GET','POST'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def lista_carro(request):
     queryset2 = CartItem.objects.filter(user=request.user)
