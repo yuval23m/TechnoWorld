@@ -18,7 +18,7 @@ from django.shortcuts import render, redirect,reverse
 ########################
 @csrf_exempt
 @api_view(['GET','POST'])
-#@permission_classes((IsAdminUser,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def login_custom(request):
 
@@ -53,7 +53,7 @@ def login_custom(request):
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 ########################################################
 @api_view(['GET','POST'])
-#@permission_classes((IsAdminUser,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def register_custom(request):
 
@@ -84,7 +84,7 @@ def register_custom(request):
         else:
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 @api_view(['GET','POST'])
-#@permission_classes((IsAdminUser,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def logout_custom(request):
 
