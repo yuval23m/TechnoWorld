@@ -32,12 +32,8 @@ class AuthTokenSerializer(serializers.Serializer):
         data['user'] = user
         return data
     
-# User Serializer
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('username', 'email')
 class LoginSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(max_length=255)
     password = serializers.CharField(style={'input_type': 'password'})
     class Meta:
         model = User
@@ -46,9 +42,8 @@ class LoginSerializer(serializers.ModelSerializer):
                         'email':{'required':True,'help_text':None}}
 
 
-    
-# Register Serializer
 class RegisterSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(max_length=255)
     email = serializers.EmailField(max_length=255)
     password = serializers.CharField(style={'input_type': 'password'})
     class Meta:

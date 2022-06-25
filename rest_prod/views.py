@@ -9,11 +9,11 @@ from django.views.decorators.csrf import csrf_exempt
 from productos.models import Producto,CartItem
 from rest_prod.serializers import ProdSerializer,CartItemAddSerializer,CartItemSerializer
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,IsAdminUser 
 
 @csrf_exempt
 @api_view(['POST'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productosID(request, ID):
     queryset2 = Producto.objects.all()
@@ -27,7 +27,7 @@ def lista_productosID(request, ID):
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST,template_name='elcarritosID.html' )
 
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productos(request):
     queryset2 = Producto.objects.all()
@@ -36,7 +36,7 @@ def lista_productos(request):
         data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username}
         return Response(data, template_name='elcarritos.html')
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_carro_prod_reduce(request,ID):
     queryset = CartItem.objects.all()
@@ -56,7 +56,7 @@ def lista_carro_prod_reduce(request,ID):
         data = {'productos':queryset,'mensaje':"Un Producto eliminado del carrito"}
         return Response(data,template_name='carrito_user.html')
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_carro_prod_del(request,ID):
     queryset = CartItem.objects.all()
@@ -73,7 +73,7 @@ def lista_carro_prod_del(request,ID):
         
     
 @api_view(['GET'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_carro_prod_add(request,ID):
     queryset = CartItem.objects.all()
@@ -97,7 +97,7 @@ def lista_carro_prod_add(request,ID):
 
 
 @api_view(['GET','POST'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def lista_carro(request):
     queryset2 = CartItem.objects.filter(user=request.user)
@@ -107,7 +107,7 @@ def lista_carro(request):
         return Response(data, template_name='carrito_user.html')
     
 @api_view(['GET','POST'])
-@permission_classes((IsAuthenticated,))
+@permission_classes((IsAdminUser,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def lista_prod(request):
 
@@ -141,7 +141,7 @@ def lista_prod(request):
 
 
 @api_view(['GET','POST','PUT'])
-@permission_classes((IsAuthenticated,))
+@permission_classes((IsAdminUser,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def detalle_prod(request,ID):
 
@@ -178,7 +178,7 @@ def detalle_prod(request,ID):
         else:
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 @api_view(['GET','DELETE'])
-@permission_classes((IsAuthenticated,))
+@permission_classes((IsAdminUser,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def eliminar_prod(request,ID):
     queryset = Producto.objects.all()

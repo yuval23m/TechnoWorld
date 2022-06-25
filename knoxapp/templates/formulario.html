@@ -17,10 +17,17 @@
     <div class="titulo d-flex justify-content-center bg-primary rounded-end rounded-start">
         <h1 class="text-white">Registro</h1>
       </div>
-    <form target="" action="{% url 'validaregister' %}" method="post" validate>
+    <form target="" action="{% url 'registercustom' %}" method="post" validate>
         {% csrf_token %}
         <div class="form-control">
             {% render_form serializer %}
+            {%if mensaje%}
+            <div class="d-flex flex-column">
+                <p>{{mensaje}}</p>
+                <a class="btn btn-primary" href="{% url 'logincustom' %}" role="button"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+            </div>
+            {%endif%}
+            
         </div>
         
         <div class="form-group">
