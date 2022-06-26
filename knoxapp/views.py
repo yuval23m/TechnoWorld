@@ -1,6 +1,3 @@
-import json
-from rest_framework import generics, permissions
-from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.renderers import TemplateHTMLRenderer,JSONRenderer
@@ -10,15 +7,12 @@ from django.contrib.auth import login,logout
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes,renderer_classes
 from knoxapp.serializers import AuthTokenSerializer
-from knox.views import LoginView as KnoxLoginView
-from knox.auth import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated,IsAdminUser 
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect,reverse
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
+from django.shortcuts import redirect
 ########################
 @csrf_exempt
 @api_view(['GET','POST'])
-@permission_classes((IsAuthenticated,))
+#@permission_classes((IsAuthenticated,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def login_custom(request):
 
@@ -53,7 +47,7 @@ def login_custom(request):
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 ########################################################
 @api_view(['GET','POST'])
-@permission_classes((IsAuthenticated,))
+@permission_classes((IsAdminUser,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def register_custom(request):
 
