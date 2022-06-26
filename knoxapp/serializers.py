@@ -1,10 +1,6 @@
-from unittest.util import _MAX_LENGTH
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from django.contrib.auth import login
-from rest_framework import permissions
-from rest_framework.authtoken.serializers import AuthTokenSerializer
-from knox.views import LoginView as KnoxLoginView
+# from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.contrib.auth import authenticate
 
 class AuthTokenSerializer(serializers.Serializer):
