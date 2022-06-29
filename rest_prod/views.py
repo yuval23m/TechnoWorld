@@ -12,12 +12,17 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated,IsAdminUser 
 
 @csrf_exempt
-@api_view(['POST'])
+@api_view(['GET','POST'])
 @permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productosID(request, ID):
     queryset2 = Producto.objects.all()
-    if request.method == 'POST':
+    queryset3 = Producto.objects.filter(idpro = ID)
+    if request.method == 'GET':
+        serializer = CartItemAddSerializer()
+        data = {'serializer': serializer,'productos':queryset3,'mensaje':"Agregado al Carrito Correctamente"}
+        return Response(data,template_name='elcarritosID.html' )
+    elif request.method == 'POST':
         serializer = CartItemAddSerializer(data=request.data, context={'request': request,'producto_id':ID})
         if serializer.is_valid():
             serializer.save()
