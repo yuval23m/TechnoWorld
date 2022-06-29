@@ -89,6 +89,7 @@ REST_FRAMEWORK = {
         #'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'knox.auth.TokenAuthentication',
+        #AUTENTICACION VIA TOKEN Y SESION POR DEFAULT
     ],
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
