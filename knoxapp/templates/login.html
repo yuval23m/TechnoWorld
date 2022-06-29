@@ -27,6 +27,10 @@
         <div class="form-control">
             {% render_form serializer %}
             {{mensaje}}
+            {%if mensaje_redirect%}
+                {{mensaje_redirect}}
+                <meta http-equiv="refresh" content="5; URL=http://127.0.0.1:8000" />
+            {%endif%}
         </div>
         <div class="form-group">
             <div class="d-flex justify-content-center text-center p-2 gap-3">
