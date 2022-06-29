@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.renderers import TemplateHTMLRenderer,JSONRenderer
@@ -7,12 +8,12 @@ from django.contrib.auth import login,logout
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes,renderer_classes
 from knoxapp.serializers import AuthTokenSerializer
-from rest_framework.permissions import IsAuthenticated,IsAdminUser
-from django.shortcuts import redirect
+from rest_framework.permissions import AllowAny,IsAuthenticated,IsAdminUser
+from django.shortcuts import redirect, get_object_or_404
 ########################
 @csrf_exempt
 @api_view(['GET','POST'])
-#@permission_classes((IsAuthenticated,))
+@permission_classes((AllowAny,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def login_custom(request):
 
@@ -28,7 +29,7 @@ def login_custom(request):
                 user = serializer.validated_data['user']
                 login(request, user)
                 token = AuthToken.objects.create(user)[1]
-                return Response({'serializer': serializer,"data":token,"mensaje": "Logeado Correctamente"},template_name='login.html')
+                return Response({'serializer': serializer,"data":token,"mensaje_redirect": "Logeado Correctamente"},template_name='login.html')
             else:
                 errors = {'serializer': serializer,'mensaje':"Logeado Incorrectamente"}
                 return Response(errors, template_name='login.html')
@@ -47,7 +48,7 @@ def login_custom(request):
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 ########################################################
 @api_view(['GET','POST'])
-@permission_classes((IsAdminUser,))
+@permission_classes((AllowAny,))
 @renderer_classes([JSONRenderer,TemplateHTMLRenderer])
 def register_custom(request):
 
@@ -85,20 +86,18 @@ def logout_custom(request):
     if request.accepted_renderer.format == 'html':
         if request.method == 'GET':
             try:
-                borrar = AuthToken.objects.get(user=request.user)
-                borrar.delete()
-            except AuthToken.DoesNotExist:
-                return redirect('Inicio')
-                
+                borrar = get_object_or_404(AuthToken, user=request.user)
+            except:
+                return HttpResponse('El Token no existe. Sesión expirada <meta http-equiv="refresh" content="5; URL=http://127.0.0.1:8000/knox/login/" />')
+            borrar.delete()
             logout(request)
             return redirect('Inicio')
     if request.method == 'GET':
         try:
-            borrar = AuthToken.objects.get(user=request.user)
-            borrar.delete()
-        except AuthToken.DoesNotExist:
+            borrar = get_object_or_404(AuthToken, user=request.user)
+        except:
             return Response(None, status=status.HTTP_204_NO_CONTENT)
-            
+        borrar.delete()    
         logout(request)
         return Response(None, status=status.HTTP_204_NO_CONTENT)
         
