@@ -88,7 +88,9 @@ def logout_custom(request):
             try:
                 borrar = get_object_or_404(AuthToken, user=request.user)
             except:
+                logout(request)
                 return HttpResponse('El Token no existe. Sesión expirada <meta http-equiv="refresh" content="5; URL=http://127.0.0.1:8000/knox/login/" />')
+                
             borrar.delete()
             logout(request)
             return redirect('Inicio')
