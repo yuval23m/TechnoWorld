@@ -36,7 +36,9 @@
             <a href="{% url 'logincustom' %}"><i class="fa-solid fa-user icono"></i>Iniciar Sesión</a>			
             <a href="/contacto" target="_blank"><i class="fa-solid fa-phone icono"></i>Contacto</a>
             <a href="/quienes-somos"><i class="fa-solid fa-users icono"></i>Quiénes somos</a>
-            <a href="{% url 'lista_prod' %}"><i class="fa-solid fa-gear icono"></i>Ajustes</a>
+            {%if user.is_staff%}
+                <a href="{% url 'lista_prod' %}"><i class="fa-solid fa-gear icono"></i>Ajustes</a>
+            {%endif%}
             <a class="corona" href="/version-pro"><i class="fa-solid fa-crown icono"></i>Pro</a>
             <i id="finalmenu" class="fa-solid fa-globe"></i>
 		</nav>

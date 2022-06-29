@@ -20,7 +20,7 @@ def lista_productosID(request, ID):
     queryset3 = Producto.objects.filter(idpro = ID)
     if request.method == 'GET':
         serializer = CartItemAddSerializer()
-        data = {'serializer': serializer,'productos':queryset3,'mensaje':"Agregado al Carrito Correctamente"}
+        data = {'serializer': serializer,'productos':queryset3,'mensaje':"Agrege el producto a su carrito"}
         return Response(data,template_name='elcarritosID.html' )
     elif request.method == 'POST':
         serializer = CartItemAddSerializer(data=request.data, context={'request': request,'producto_id':ID})
@@ -121,7 +121,7 @@ def lista_prod(request):
     if request.accepted_renderer.format == 'html':
         if request.method == 'GET':
             serializer = ProdSerializer()
-            data = {'productos': queryset,'serializer':serializer}
+            data = {'productos': queryset,'serializer':serializer,'mensaje':"Bienvenido "+ request.user.username}
             
             return Response(data, template_name='home.html')
         elif request.method == 'POST':
