@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-x(urdwst3+i^gl#%6cw4ieyv(kj(3hrtpl^@*&80noc!p5cqvf
 # Si lo usas desde la consola = True | Si hosteas la web = False
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','overlife.club','technoworld.overlife.club']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','overlife.club','technoworld.overlife.club','ec2-3-85-39-22.compute-1.amazonaws.com']
 
 
 # Application definition
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'CarritoApp',
 ]
 
 
@@ -78,7 +77,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'CarritoApp.context_processor.total_carrito', 
             ],
         },
     },
@@ -89,6 +87,7 @@ REST_FRAMEWORK = {
         #'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'knox.auth.TokenAuthentication',
+        #AUTENTICACION VIA TOKEN Y SESION POR DEFAULT
     ],
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
@@ -108,7 +107,7 @@ LOGOUT_REDIRECT_URL = "/"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'NAME': 'mydatabase.sqlite3',
     }
 }
 
