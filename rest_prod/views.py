@@ -16,9 +16,8 @@ from rest_framework.permissions import IsAuthenticated,IsAdminUser
 @permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productosID(request, ID):
+    queryset2 = Producto.objects.all()
     queryset3 = Producto.objects.filter(idpro = ID)
-    user = request.user
-    cart_item = CartItem.objects.filter(user=user)
     if request.method == 'GET':
         serializer = CartItemAddSerializer()
         data = {'serializer': serializer,'productos':queryset3,'mensaje':"Agrege el producto a su carrito"}
@@ -26,16 +25,13 @@ def lista_productosID(request, ID):
     elif request.method == 'POST':
         serializer = CartItemAddSerializer(data=request.data, context={'request': request,'producto_id':ID})
         if serializer.is_valid():
-            if cart_item.count() < 1:
-                serializer.save()
-                data = {'serializer': serializer,'productos':queryset3,'mensaje':"Agregado al Carrito Correctamente"}
-                return Response(data,template_name='elcarritosID.html' )
-            data = {'serializer': serializer,'productos':queryset3,'mensaje':"Ya agregaste este producto al carrito, revisa tu carrito."}
-            return Response(data,template_name='elcarritosID.html' )
+            serializer.save()
+            data = {'serializer': serializer,'productos':queryset2,'mensaje':"Agregado al Carrito Correctamente"}
+            return Response(data,template_name='elcarritos.html' )
         else:
             return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST,template_name='elcarritosID.html' )
 
-""" @api_view(['GET'])
+@api_view(['GET'])
 @permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])
 def lista_productos(request):
@@ -43,7 +39,7 @@ def lista_productos(request):
     if request.method == 'GET':
         serializer = CartItemAddSerializer()
         data = {'serializer': serializer,'productos':queryset2,'mensaje':"Bienvenido "+ request.user.username}
-        return Response(data, template_name='elcarritos.html') """
+        return Response(data, template_name='elcarritos.html')
 @api_view(['GET'])
 @permission_classes((IsAuthenticated,))
 @renderer_classes([TemplateHTMLRenderer])

@@ -77,11 +77,8 @@
                                                 <td>Precio {{prod.precio}}</td>
                                                 <td>Marca {{prod.marca}}</td>
                                         </tr>
-                                        {% if user.is_authenticated %}
-                                            <a class="compra-aqui" href="{% url 'lista_productosID' prod.idpro %}">Compra aquí!</a>
-                                        {% else %}
-                                            <a class="compra-aqui" href="{% url 'logincustom' %}">Inicia sesión para comprar</a>
-                                        {% endif %}
+                                        
+                                        <a class="compra-aqui" href="{% url 'lista_productosID' prod.idpro %}">Compra aquí!</a>
                                     {% endfor %}
                                     
                                 </div>
