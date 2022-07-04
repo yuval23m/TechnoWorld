@@ -6,15 +6,12 @@
 }
 
 body {
-    background-color: #ffffff;
-    background-image: url(../imagenes/bg4.jpg);
-    background-position: center center;
-    background-attachment: fixed;
+    background: #E5E5E5;
     background-repeat: no-repeat;
+    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0)), url(../image/bg4.jpg);
     background-size: cover;
-    /* ATRIBUTOS BACKGROUND DE BODY */
-    display: flex;
-    flex-direction: column;
+    background-attachment: fixed;
+    background-color: #593a81;
 }
 
 h1,
@@ -24,6 +21,7 @@ h4,
 h5,
 h6 {
     color: #ffffff;
+    text-align: center;
 }
 
 header {
@@ -335,9 +333,6 @@ h1 {
 }
 
 .carousel-item {
-    background-color: #10095875;
-    border-radius: 100px;
-    border: 1mm ridge;
     min-height: 280px;
     padding: 0px;
     position: relative;
@@ -864,6 +859,8 @@ a {
         width: 100%;
     }
     #contenedor5img {
+        position: relative;
+        left: 20%;
         width: 100%;
     }
     #caja-ofrecemos {
@@ -886,73 +883,6 @@ a {
     }
     .contenedor3 {
         margin: auto;
-    }
-}
-
-
-/* DISEÑO LAPTOP CHICA */
-
-@media screen and (min-width: 769px) {
-    #menu {
-        width: 90%;
-        /* ATRIBUTOS BORDER DE LA CAJA NAV */
-    }
-    #titulo li.titulotxt {
-        font-size: 30px;
-        margin: 120px 0px;
-    }
-    .servicios {
-        font-size: 25px;
-    }
-    #productos h1 {
-        font-size: 28px;
-    }
-    #articulo1 {
-        height: 400px;
-    }
-    #articulo2 {
-        height: 400px;
-    }
-    #articulo3 {
-        height: 400px;
-    }
-    #articulo4 {
-        height: 400px;
-    }
-    #articulo5 {
-        height: 400px;
-    }
-    #articulo1 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
-    }
-    #articulo2 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
-    }
-    #articulo3 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
-    }
-    #articulo4 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
-    }
-    #articulo5 img {
-        margin: 15px 121px;
-        width: 50%;
-        height: 50%;
-    }
-    div.carousel-caption {
-        bottom: 0.25rem;
-    }
-    #caja-ofrecemos {
-        top: -370px;
-        left: 40%;
     }
 }
 
@@ -1151,7 +1081,7 @@ a {
     }
     #caja-ofrecemos {
         top: -500px;
-        left: -33%;
+        right: -15%;
     }
     .cont-menu nav i {
         font-size: 25px;
