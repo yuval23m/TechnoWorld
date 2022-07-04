@@ -1,0 +1,5 @@
+pip install django-allauth
+pip install django-rest-framework
+pip install django-rest-knox
+pip install Pillow
+pip install cx_oracle

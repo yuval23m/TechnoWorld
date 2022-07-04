@@ -1,16 +1,14 @@
-from .views import RegisterAPIPOST, RegisterAPIGET,LoginAPIPOST,LoginAPIGET,LogoutView
+from .views import login_custom, logout_custom,register_custom
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from knox import views as knox_views
+
 
 
 urlpatterns = [
-    path('register-form/', RegisterAPIGET.as_view(), name='register'),
-    path('valida-register/', RegisterAPIPOST.as_view(), name='validaregister'),
-    path('login-form/', LoginAPIGET.as_view(), name='login'),
-    path('valida-form/', LoginAPIPOST.as_view(), name='login-valida'),
-    path('logout/', LogoutView.as_view(), name='logoutknox'),
+    path('register/', register_custom, name='registercustom'),
+    path('login/', login_custom, name='logincustom'),
+    path('logout/', logout_custom, name='logoutcustom'),
 ]
 
 if settings.DEBUG:  

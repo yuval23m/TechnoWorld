@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Cliente(models.Model):
@@ -22,6 +23,19 @@ class Producto(models.Model):
     img = models.ImageField(upload_to = 'fotoproducto/', null=True)
     marca = models.CharField(max_length=20,null=True, blank=True, verbose_name='Marca')
     tipo = models.ForeignKey(TipoProducto,null=True, on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField(default=1)
+    is_available = models.BooleanField(default=True)
 
     def __ini__(self):
         return self.idpro
+    
+class CartItem(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return self.producto.nombre
+    def subtotal(self):
+        resultado = self.producto.precio * self.cantidad
+        return resultado

@@ -1,29 +1,82 @@
 {% load rest_framework %}
+{% load socialaccount %}
+{% load static %}
 
-<form target="" class="form-horizontal" action="{% url 'login-valida' %}" method="post" novalidate>
-    {% csrf_token %}
-    {% render_form serializer %}
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <input onclick="window.location.href = '/';" type="submit" value="login" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" integrity="sha384-eoTu3+HydHRBIjnCVwsFyCpUDZHZSFKEJD0mc3ZqSBSb6YhZzRHeiomAUWCstIWo" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'productos/css/estilo-login.css'%}">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="container w-25 justify-content-center p-3">
+    <div class="titulo d-flex justify-content-center bg-primary rounded-end rounded-start">
+        <h1 class="text-white">Login</h1>
+      </div>
+    <form target="" action="{% url 'logincustom' %}" method="post" validate>
+        {% csrf_token %}
+        <div class="form-control">
+            {% render_form serializer %}
+            {{mensaje}}
+            {%if mensaje_redirect%}
+                {{mensaje_redirect}}
+                <meta http-equiv="refresh" content="5; URL=http://127.0.0.1:8000" />
+            {%endif%}
+        </div>
+        <div class="form-group">
+            <div class="d-flex justify-content-center text-center p-2 gap-3">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"> Login</i></button>
+                <a class="btn btn-primary" href="{% provider_login_url 'google' %}" role="button"><i class="bi bi-google"> Google</i></a>
+                <a class="btn btn-primary" href="{% url 'logoutcustom' %}" role="button"><i class="bi bi-box-arrow-left"> LogOut</i></a>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="d-flex justify-content-center text-center p-4 gap-3">
+                <h5>¿No tienes cuenta? Haz click en el boton registrarse</h5>
+                <a class="btn btn-primary" href="{% url 'registercustom' %}" role="button"><i class="bi bi-box-arrow-left"> Registrarse</i></a>
+            </div>
+        </div>
+    </form>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+<footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href="index2.html">
+                    TECHn <i class="fa-solid fa-globe"></i> World
+                </a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Amantes de la tecnología</p>
+            <p>entregando el mejor software y hardware hacia ustedes!</p>
+        </div>
+        <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-youtube"></a>
+            </div>
         </div>
     </div>
-    <div id="error" class="alert alert-success" role="alert">
-        {% block content %}
-        {% endblock %}
+    <div class="grupo-2">
+        <small>&copy; 2021 <b>TECHn <i class="fa-solid fa-globe"></i> World</b> - Todos los Derechos Reservados.</small>
     </div>
-    
-</form>
-<form target="" class="form-horizontal" action="{% url 'logoutknox' %}" method="post" novalidate>
-    {% csrf_token %}
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <input onclick="window.location.href = '/';" type="submit" value="Logout" />
-        </div>
-    </div>
-    <div id="error" class="alert alert-success" role="alert">
-        {{ mensaje }}
-    </div>
- 
-    
-</form>
+</footer>
+<script src="https://kit.fontawesome.com/0113bec5a9.js" crossorigin="anonymous"></script>
+</html>

@@ -1,14 +1,45 @@
 {% load rest_framework %}
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css" integrity="sha384-eoTu3+HydHRBIjnCVwsFyCpUDZHZSFKEJD0mc3ZqSBSb6YhZzRHeiomAUWCstIWo" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-<form target="" class="form-horizontal" action="{% url 'validaregister' %}" method="post" validate>
-    {% csrf_token %}
-    {% render_form serializer %}
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <input  type="submit" value="Registrarse" />
+    <title>Document</title>
+</head>
+<body>
+
+<div class="container w-25 justify-content-center p-3">
+    <div class="titulo d-flex justify-content-center bg-primary rounded-end rounded-start">
+        <h1 class="text-white">Registro</h1>
+      </div>
+    <form target="" action="{% url 'registercustom' %}" method="post" validate>
+        {% csrf_token %}
+        <div class="form-control">
+            {% render_form serializer %}
+            {%if mensaje%}
+            <div class="d-flex flex-column">
+                <p>{{mensaje}}</p>
+                <a class="btn btn-primary" href="{% url 'logincustom' %}" role="button"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+            </div>
+            {%endif%}
+            
         </div>
-    </div>
-    <div id="error" class="alert alert-success" role="alert">
-        {{ mensaje }}
-    </div>
-</form>
+        
+        <div class="form-group">
+            <div class="d-flex justify-content-center text-center p-2 gap-3">
+                <input class="btn btn-primary" type="submit" value="Registrarse" />
+                <i class="bi bi-arrow-left-right p-2"></i>
+                <a class="btn btn-primary" href="{% provider_login_url 'google' %}" role="button"><i class="bi bi-google"> Google</i></a>
+            </div>
+        </div>
+    </form>
+      
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
