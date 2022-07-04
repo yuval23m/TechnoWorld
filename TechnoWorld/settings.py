@@ -104,13 +104,10 @@ WSGI_APPLICATION = 'TechnoWorld.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES={
-    'default':
-    {
-    'ENGINE':'django.db.backends.oracle',
-    'NAME':'localhost:1521/xe',
-    'USER':'TECHNO', 
-    'PASSWORD':'1234',#Please provide the db password here
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
