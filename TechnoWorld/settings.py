@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'CarritoApp',
 ]
 
 
@@ -77,6 +78,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                'CarritoApp.context_processor.total_carrito', 
             ],
         },
     },
@@ -101,13 +103,11 @@ WSGI_APPLICATION = 'TechnoWorld.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-#Redirect Google Login
-SOCIALACCOUNT_LOGIN_ON_GET=True
-LOGOUT_REDIRECT_URL = "/"
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
