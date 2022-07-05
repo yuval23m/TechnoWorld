@@ -6,6 +6,15 @@
     box-sizing: border-box;
 }
 
+#globo{
+    position: relative;
+    right: 80px;
+}
+
+#correo{
+    position: absolute;
+    top: 21px;
+}
 
 /*CUERPO*/
 
