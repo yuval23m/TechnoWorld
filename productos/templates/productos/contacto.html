@@ -13,30 +13,30 @@
 </head>
 
 <body>
+    
     <header>
-       <nav id="menu">
-            <section id="contMenu">
-                <ul id="lista">
-                    <li>
-                        <a href="/index2"> <i class="fa-solid fa-house"></i>Inicio</a>
-                    </li>
-                    <li>
-
-                        <a href="/contacto" target="_blank"><i class="fa-solid fa-phone"></i>Contacto</a></li>
-                    <li>
-                        <a href="/quienes-somos"><i class="fa-solid fa-users"></i>Quiénes somos</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa-solid fa-gear"></i>Ajustes</a>
-                    </li>
-                    <li>
-
-                        <a href="/version-pro"><i class="fa-solid fa-crown"></i>Pro</a>
-                    </li>
-                </ul>
-            </section>
-        </nav>
-    </header>
+        <div class="container">
+		    <div class="btn-menu">
+			    <label for="btn-menu"><i class="fa-solid fa-bars"></i></label>
+		    </div>
+		</div>
+	<div class="capa"></div>
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+            <a href="{% url 'logincustom' %}"><i class="fa-solid fa-user icono"></i>Iniciar Sesión</a>			
+            <a href="/contacto" target="_blank"><i class="fa-solid fa-phone icono"></i>Contacto</a>
+            <a href="/quienes-somos"><i class="fa-solid fa-users icono"></i>Quiénes somos</a>
+            {%if user.is_staff%}
+                <a href="{% url 'lista_prod' %}"><i class="fa-solid fa-gear icono"></i>Ajustes</a>
+            {%endif%}
+            <a class="corona" href="/version-pro"><i class="fa-solid fa-crown icono"></i>Pro</a>
+            <i id="finalmenu" class="fa-solid fa-globe"></i>
+		</nav>
+		<label for="btn-menu"><i class="fa-solid fa-xmark"></i></label>
+	</div>
+</div>
     <span>
         <i class="fa-solid fa-globe"></i>
     </span>
